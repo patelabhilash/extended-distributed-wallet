@@ -7,19 +7,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.supabaseconnector.artifact2.entity.Accident;
-import com.supabaseconnector.artifact2.entity.AccidentRepairExpense;
 import com.supabaseconnector.artifact2.entity.Device;
 import com.supabaseconnector.artifact2.entity.FinancialTransactionLog;
-import com.supabaseconnector.artifact2.entity.InsuranceClaim;
 import com.supabaseconnector.artifact2.entity.NonAccidentRepairPaidSeparately;
 import com.supabaseconnector.artifact2.entity.OtherTransaction;
 import com.supabaseconnector.artifact2.entity.Wallet;
-import com.supabaseconnector.artifact2.entity.journey.Employee;
-import com.supabaseconnector.artifact2.entity.journey.Journey;
-import com.supabaseconnector.artifact2.entity.journey.JourneyLedger;
-import com.supabaseconnector.artifact2.entity.journey.Route;
-import com.supabaseconnector.artifact2.entity.journey.Vehicle;
+import com.supabaseconnector.artifact2.entity.acci.Accident;
+import com.supabaseconnector.artifact2.entity.acci.AccidentRepairExpense;
+import com.supabaseconnector.artifact2.entity.acci.InsuranceClaim;
+import com.supabaseconnector.artifact2.entity.jour.Employee;
+import com.supabaseconnector.artifact2.entity.jour.Journey;
+import com.supabaseconnector.artifact2.entity.jour.JourneyLedger;
+import com.supabaseconnector.artifact2.entity.jour.Route;
+import com.supabaseconnector.artifact2.entity.jour.Vehicle;
 import com.supabaseconnector.artifact2.model.TransactionList;
 
 @Service

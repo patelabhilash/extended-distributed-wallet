@@ -5,3 +5,5 @@ in repository
 "com.supabaseconnector.artifact2.repository"
 create repository interfaces for entities present in 
 "com.supabaseconnector.artifact2.entity" package
+
+add corresponding JPA repository interface below for the given entity with few default methods

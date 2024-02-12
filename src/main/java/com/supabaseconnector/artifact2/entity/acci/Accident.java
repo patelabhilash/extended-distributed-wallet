@@ -1,8 +1,8 @@
-package com.supabaseconnector.artifact2.entity;
+package com.supabaseconnector.artifact2.entity.acci;
 
 import java.util.Date;
 
-import com.supabaseconnector.artifact2.entity.Constraints.AccidentStatus;
+import com.supabaseconnector.artifact2.util.Constraints.AccidentStatus;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,3 +33,4 @@ public class Accident {
     AccidentStatus status;
 
 }
+

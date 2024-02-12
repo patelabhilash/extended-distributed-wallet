@@ -1,4 +1,4 @@
-package com.supabaseconnector.artifact2.entity.journey;
+package com.supabaseconnector.artifact2.entity.jour;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,15 +8,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "journey_passenger_row")
-public class JourneyPassengerRow {
+@Table(name = "location")
+public class Location {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "journey_passenger_row_id")
-    long journeyPassengerRowId;
+    @Column(name = "location_id")
+    long locationId;
 
-    @Column(name = "journey_ledger_id")
-    long journeyLedgerId;
+    @Column(name = "location_name")
+    String locationName;
 
 }

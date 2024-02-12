@@ -3,7 +3,7 @@ package com.supabaseconnector.artifact2.entity;
 
 import java.util.Date;
 
-import com.supabaseconnector.artifact2.entity.Constraints.TransactionType;
+import com.supabaseconnector.artifact2.util.Constraints.TransactionType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

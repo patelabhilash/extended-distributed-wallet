@@ -1,4 +1,4 @@
-package com.supabaseconnector.artifact2.entity;
+package com.supabaseconnector.artifact2.util;
 
 public interface Constraints {
 

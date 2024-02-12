@@ -1,4 +1,4 @@
-package com.supabaseconnector.artifact2.entity.journey;
+package com.supabaseconnector.artifact2.entity.jour;
 import java.util.List;
 
 import jakarta.persistence.Column;

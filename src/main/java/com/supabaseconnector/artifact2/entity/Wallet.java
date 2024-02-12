@@ -1,6 +1,6 @@
 package com.supabaseconnector.artifact2.entity;
 
-import com.supabaseconnector.artifact2.entity.Constraints.WalletType;
+import com.supabaseconnector.artifact2.util.Constraints.WalletType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

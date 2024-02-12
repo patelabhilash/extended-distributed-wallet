@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.supabaseconnector.artifact2.entity.NonAccidentRepairPaidSeparately;
 import com.supabaseconnector.artifact2.entity.OtherTransaction;
-import com.supabaseconnector.artifact2.entity.journey.Journey;
+import com.supabaseconnector.artifact2.entity.jour.Journey;
 
 public class TransactionList {
     private List<Journey> journeyList;

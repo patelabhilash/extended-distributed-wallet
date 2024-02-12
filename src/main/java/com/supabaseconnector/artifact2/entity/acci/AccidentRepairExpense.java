@@ -1,6 +1,4 @@
-package com.supabaseconnector.artifact2.entity;
-
-import java.util.Date;
+package com.supabaseconnector.artifact2.entity.acci;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,21 +8,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "insurance_claim")
-public class InsuranceClaim {
+@Table(name = "accident_repair_expense")
+public class AccidentRepairExpense {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "insurance_claim_id")
-    long insuranceClaimId;
-
     @Column(name = "accident_repair_expense_id")
     long accidentRepairExpenseId;
 
-    @Column(name = "claim_received_date")
-    Date claimReceivedDate;
+    @Column(name = "accident_id")
+    long accidentId;
 
-    // paid to is to a bank_E
-    // amount will be 0 as it's E to E transaction
+    // paid to will be fetched
+    // paid by will be REPAIR_SHOP_E
+
 }
-
