@@ -1,2 +1,7 @@
 make it  a jpa entity. add @Entity @Table to class and @Column to each field. if a field is of type list, then add one to many mapping. 
 add auto import from jakarta.persistence
+
+in repository
+"com.supabaseconnector.artifact2.repository"
+create repository interfaces for entities present in 
+"com.supabaseconnector.artifact2.entity" package

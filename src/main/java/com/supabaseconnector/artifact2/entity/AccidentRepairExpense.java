@@ -2,12 +2,17 @@ package com.supabaseconnector.artifact2.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "accident_repair_expense")
 public class AccidentRepairExpense {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "accident_repair_expense_id")
     long accidentRepairExpenseId;
 
