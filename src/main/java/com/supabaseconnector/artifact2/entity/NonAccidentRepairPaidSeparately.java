@@ -8,7 +8,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "non_accident_repair_paid_separately")
 public class NonAccidentRepairPaidSeparately {
@@ -16,24 +18,24 @@ public class NonAccidentRepairPaidSeparately {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "nareps_id")
-    Long narepsId;
+    private Long narepsId;
 
     @Column(name = "vehicle_id")
-    String vehicleId;
+    private String vehicleId;
 
     @Column(name = "transaction_date")
-    Date transactionDate;
+    private Date transactionDate;
 
     @Column(name = "paid_by")
-    String paidBy;
+    private String paidBy;
 
     @Column(name = "repair_shop_name")
-    String repairShopName;
+    private String repairShopName;
 
     @Column(name = "parts_name")
-    String partsName;
+    private String partsName;
 
     @Column(name = "note")
-    String note;
+    private String note;
 
 }

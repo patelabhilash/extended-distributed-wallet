@@ -11,7 +11,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "stop")
 public class Stop {
@@ -19,23 +21,23 @@ public class Stop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "stop_id")
-    long stopId;
+    private long stopId;
 
     @ManyToOne
     @JoinColumn(name = "route_id")
-    Route route;
+    private Route route;
 
     @OneToOne
     @JoinColumn(name = "location_id")
-    Location location;
+    private Location location;
 
     @Column(name = "arrival_time")
-    LocalTime arrivalTime;
+    private LocalTime arrivalTime;
 
     @Column(name = "departure_time")
-    LocalTime departureTime;
+    private LocalTime departureTime;
 
     @Column(name = "stop_duration_in_minute")
-    int stopDurationInMinute;
+    private int stopDurationInMinute;
 
 }

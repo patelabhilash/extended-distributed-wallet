@@ -6,7 +6,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "employee")
 public class Employee {
@@ -14,20 +16,20 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employee_id")
-    long employeeId;
+    private long employeeId;
 
     @Column(name = "full_name")
-    String fullName;
+    private String fullName;
 
     @Column(name = "short_name")
-    String shortName;
+    private String shortName;
 
     @Column(name = "role")
-    String role; // driver,conductor, helper, manager etc.
+    private String role; // driver,conductor, helper, manager etc.
 
     @Column(name = "aadhar_no")
-    String aadharNo;
+    private String aadharNo;
 
     @Column(name = "is_document_complete")
-    boolean isDocumentComplete;
+    private boolean isDocumentComplete;
 }

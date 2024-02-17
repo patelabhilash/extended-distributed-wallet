@@ -12,7 +12,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "journey")
 public class Journey {
@@ -20,22 +22,22 @@ public class Journey {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "journey_id")
-    long journeyId;
+    private long journeyId;
 
     @Column(name = "journey_start_date")
-    Date journeyStartDate;
+    private Date journeyStartDate;
 
     @OneToOne
     @JoinColumn(name = "route_id")
-    Route route;
+    private Route route;
 
     @OneToOne
     @JoinColumn(name = "chasis_no")
-    Vehicle vehicle;
+    private Vehicle vehicle;
 
     @OneToMany
     @JoinColumn(name = "employee_id")
-    List<Employee> employees;
+    private List<Employee> employees;
 
     @OneToOne(mappedBy = "journey", orphanRemoval = true)
     private JourneyLedger journeyLedgerId;

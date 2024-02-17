@@ -6,7 +6,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "journey_transaction")
 public class JourneyTransaction {
@@ -14,17 +16,17 @@ public class JourneyTransaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "journey_transaction_id")
-    long journeyTransactionId;
+    private long journeyTransactionId;
 
     @Column(name = "journey_id")
-    long journeyId;
+    private long journeyId;
 
     /*
      * true for income
      * false for SET non-accident_repair_expense_included_in_journey
      */
     @Column(name = "is_income")
-    boolean isIncome;
+    private boolean isIncome;
 
     // paidTo or paidBy is JOURNEY_E depending on is it income or expense.
 

@@ -4,36 +4,36 @@ import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import lombok.Data;
+
+@Data
 @Entity
-@Table(name = "Vehicle")
+@Table(name = "vehicle")
 public class Vehicle {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "chasis_no")
-    String chasisNo;
+    private String chasisNo;
 
     @Column(name = "vehicleNumber")
-    String vehicleNumber;
+    private String vehicleNumber;
 
     @Column(name = "registrationDate")
-    Date registrationDate;
+    private Date registrationDate;
 
     @Column(name = "isFirstHand")
-    boolean isFirstHand;
+    private boolean isFirstHand;
 
     @Column(name = "seatCount")
-    int seatCount;
+    private int seatCount;
 
     @Column(name = "lastFitnessDate")
-    Date lastFitnessDate;
+    private Date lastFitnessDate;
 
     @Column(name = "isRetired")
-    boolean isRetired; // default false
+    private boolean isRetired; // default false
 
 }

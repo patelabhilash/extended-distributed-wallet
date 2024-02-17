@@ -6,7 +6,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "accident_repair_expense")
 public class AccidentRepairExpense {
@@ -14,10 +16,10 @@ public class AccidentRepairExpense {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "accident_repair_expense_id")
-    long accidentRepairExpenseId;
+    private long accidentRepairExpenseId;
 
     @Column(name = "accident_id")
-    long accidentId;
+    private long accidentId;
 
     // paid to will be fetched
     // paid by will be REPAIR_SHOP_E

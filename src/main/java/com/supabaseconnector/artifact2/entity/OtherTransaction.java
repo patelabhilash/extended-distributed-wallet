@@ -7,7 +7,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "other_transaction")
 public class OtherTransaction {
@@ -15,7 +17,7 @@ public class OtherTransaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "o_id")
-    long oId;
+    private long oId;
 
     // add financialTransactionClass
 

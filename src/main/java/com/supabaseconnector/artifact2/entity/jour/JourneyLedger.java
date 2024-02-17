@@ -11,7 +11,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "journey_ledger")
 public class JourneyLedger {
@@ -19,24 +21,24 @@ public class JourneyLedger {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "journey_ledger_id")
-    long journeyLedgerId;
+    private long journeyLedgerId;
 
     @OneToOne
     @JoinColumn(name = "journey_id")
-    Journey journey;
+    private Journey journey;
 
     @Column(name = "luggage_income")
-    long luggageIncome;
+    private long luggageIncome;
 
     @OneToMany(mappedBy = "journeyLedger", orphanRemoval = true)
-    List<JourneyPassengerRow> journeyPassengerRowList; // size is same as passengerOnboardingStops.size()
+    private List<JourneyPassengerRow> journeyPassengerRowList; // size is same as passengerOnboardingStops.size()
 
     @Column(name = "journey_passenger_combined_income")
-    long journeyPassengercombinedIncome;
+    private long journeyPassengercombinedIncome;
 
     @Column(name = "diesel_expense")
-    long dieselExpense;
+    private long dieselExpense;
 
     @Column(name = "misc_expense") // miscellaneous expense
-    long miscExpense;
+    private long miscExpense;
 }

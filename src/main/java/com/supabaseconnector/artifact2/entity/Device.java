@@ -9,27 +9,31 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "device")
 public class Device {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "device_id")
-    long deviceId;
+    private long deviceId;
 
     @Column(name = "device_name")
-    String deviceName;
+    private String deviceName;
 
     @Column(name = "imei")
-    String imei;
+    private String imei;
 
     @Column(name = "registration_date")
-    Date registrationDate;
+    private Date registrationDate;
 
     @Column(name = "is_active")
-    boolean isActive; // manually set to active Once registered
+    private boolean isActive; // manually set to active Once registered
 
     @Column(name = "device_access_code")
-    String deviceAccessCode; // manually given to user
+    private String deviceAccessCode; // manually given to user
 
 }
