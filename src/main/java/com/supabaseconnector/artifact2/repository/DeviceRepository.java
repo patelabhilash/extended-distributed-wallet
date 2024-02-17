@@ -11,7 +11,7 @@ import com.supabaseconnector.artifact2.entity.Device;
 @Repository
 public interface DeviceRepository extends JpaRepository<Device, Long> {
 
-    List<Device> findByDeviceName(String name);
+    List<Device> findByDeviceName(String deviceName);
     
     Device findByImei(String imei);
 

@@ -1,0 +1,41 @@
+sequenceDiagram
+reference : https://mermaid.js.org/syntax/sequenceDiagram.html
+
+sequenceDiagram
+participant A as Alice
+participant J as John
+actor Alice
+actor Bob
+A->>J: Hello John, how are you?
+J->>A: Great!
+
+----------------------------
+e.g.
+
+sequenceDiagram
+    Alice->>Bob: Hello Bob, how are you ?
+    Bob->>Alice: Fine, thank you. And you?
+    create participant Carl as Carlae Monae
+    Alice->>Carl: Hi Carl!
+    create actor D as Donald
+    Carl->>D: Hi!
+    destroy Carl
+    Alice-xCarl: We are too many
+    destroy Bob
+    Bob->>Alice: I agree
+----------------------------------
+
+arrow types:
+Type	Description
+->	Solid line without arrow
+-->	Dotted line without arrow
+->>	Solid line with arrowhead
+-->>	Dotted line with arrowhead
+-x	Solid line with a cross at the end
+--x	Dotted line with a cross at the end.
+-)	Solid line with an open arrow at the end (async)
+--)	Dotted line with a open arrow at the end (async)
+----------------------------------------
+
+activate and deactivate with solid and dotted line.
+

@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,7 +18,14 @@ public class JourneyPassengerRow {
     @Column(name = "journey_passenger_row_id")
     long journeyPassengerRowId;
 
-    @Column(name = "journey_ledger_id")
-    long journeyLedgerId;
+    @ManyToOne
+    @JoinColumn(name = "journey_ledger_id")
+    JourneyLedger journeyLedger;
+
+    @Column(name = "passenger_count")
+    long passengerCount;
+
+    @Column(name = "price_per_head")
+    long pricePerHead;
 
 }

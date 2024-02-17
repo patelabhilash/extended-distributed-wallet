@@ -18,4 +18,6 @@ public class OtherTransaction {
     long oId;
 
     // add financialTransactionClass
+
+    //
 }

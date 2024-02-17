@@ -9,10 +9,7 @@ import com.supabaseconnector.artifact2.entity.jour.Journey;
 
 public interface JourneyRepository extends JpaRepository<Journey, Long> {
 
-  List<Journey> findByStartDate(Date startDate);
-  
-  List<Journey> findByEndDate(Date endDate);
+  List<Journey> findByJourneyStartDate(Date journeyStartDate);
 
-  List<Journey> findByDuration(int duration);
 
 }

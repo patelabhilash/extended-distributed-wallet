@@ -8,10 +8,10 @@ import com.supabaseconnector.artifact2.entity.jour.JourneyPassengerRow;
 
 public interface JourneyPassengerRowRepository extends JpaRepository<JourneyPassengerRow, Long> {
 
-  List<JourneyPassengerRow> findByPassengerId(Long passengerId);
+  List<JourneyPassengerRow> findByJourneyPassengerRowId(Long journeyPassengerRowId);
 
-  List<JourneyPassengerRow> findByJourneyId(Long journeyId);
+  List<JourneyPassengerRow> findByJourneyLedgerJourneyLedgerId(Long journeyLedgerJourneyLedgerId);
 
-  Long countByPassengerId(Long passengerId);
+  Long countByJourneyPassengerRowId(Long journeyPassengerRowId);
 
 }

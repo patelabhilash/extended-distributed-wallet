@@ -8,6 +8,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,19 +22,22 @@ public class Journey {
     @Column(name = "journey_id")
     long journeyId;
 
-    @Column(name = "journey_end_date")
-    Date journeyEndDate;
+    @Column(name = "journey_start_date")
+    Date journeyStartDate;
 
-    @Column(name = "route")
+    @OneToOne
+    @JoinColumn(name = "route_id")
     Route route;
 
-    @Column(name = "vehicle")
+    @OneToOne
+    @JoinColumn(name = "chasis_no")
     Vehicle vehicle;
 
-    @Column(name = "employees")
+    @OneToMany
+    @JoinColumn(name = "employee_id")
     List<Employee> employees;
 
-    @Column(name = "journey_ledger_id")
-    long journeyLedgerId;
+    @OneToOne(mappedBy = "journey", orphanRemoval = true)
+    private JourneyLedger journeyLedgerId;
 
 }

@@ -10,10 +10,13 @@ import com.supabaseconnector.artifact2.entity.OtherTransaction;
 
 public interface OtherTransactionRepository extends JpaRepository<OtherTransaction, Long> {
 
-  List<OtherTransaction> findByAmountGreaterThan(BigDecimal amount);
+  //may need to move to FTL
+  // List<OtherTransaction> findByAmountGreaterThan(BigDecimal amount);
   
-  List<OtherTransaction> findByDateBetween(LocalDate startDate, LocalDate endDate);
-
-  Long countByType(String type);
+  //may need to move to FTL
+  // List<OtherTransaction> findByDateBetween(LocalDate startDate, LocalDate endDate);
+  
+  //may need to move to FTL
+  // Long countByType(String type);
 
 }

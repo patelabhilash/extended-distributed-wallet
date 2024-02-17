@@ -7,8 +7,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,13 +20,13 @@ public class Route {
     @Column(name = "route_id")
     long routeId;
 
-    @ManyToOne
-    @JoinColumn(name = "source_station_id")
-    Location sourceStation;
+    @OneToOne
+    @JoinColumn(name = "location_id", insertable=false, updatable=false)
+    Location origin;
 
-    @ManyToOne
-    @JoinColumn(name = "destination_station_id")
-    Location destinationStation;
+    @OneToOne
+    @JoinColumn(name = "location_id", insertable=false, updatable=false)
+    Location destination;
 
     @Column(name = "distance_in_km")
     double distanceInKm;
@@ -40,13 +40,18 @@ public class Route {
     @Column(name = "travel_duration_in_hour")
     double travelDurationInHour;
 
-    @OneToMany(mappedBy = "route")
+    @Column(name = "is_arrival_same_day")
+    boolean isArrivalSameDay;
+
+    @OneToMany(mappedBy = "route", orphanRemoval = true)
     List<Stop> allStops;
 
-    @OneToMany(mappedBy = "route")
+    @OneToMany
+    @JoinColumn(name = "stop_id")
     List<Stop> passengerOnboardingStops;
 
-    @OneToMany(mappedBy = "route")
+    @OneToMany
+    @JoinColumn(name = "stop_id")
     List<Stop> refreshmentStops;
 
 }

@@ -1,0 +1,212 @@
+💀-----------------
+(OUTDATED-- modded to subtype concept) 
+Wallet type:
+Internal, external, hidden
+
+Hidden are:
+RouteId_income_(e) (by journey) 
+// wallet count same as routes count
+
+VehicleId_repair_(e) (by nareps) 
+Vehicleid_insuranceclaim_(e) (by ic) 
+//This gets added when vehicle is added
+
+💀-------------------------------------
+Update API APPROACH
+On update, we compare with previous amount and add the difference to wallet. 
+
+
+Approach - 1 ❌
+We add a negative transaction of previous amount to FTL then a positive transaction to FTL
+
+Negative value would always suggest an update in transaction as we would never put negative value be it income or expense in negative value in the amount column. 
+
+Cons: amount table has to be of negative datatype being double the size. 
+
+Approach - 2 ✅
+Reiterate the create steps and update all tables. 
+Find the row of FTL and then update the same. 
+
+We are going with approach 2.
+💀-------------------—------------------💀
+Wallet Subtypes:
+Owner
+Manager
+Conductor
+Investor
+
+Bank
+Journey
+Repair
+
+Misc
+Other
+----------
+Write logic for create for now. Later for update after all create logic is completed. 
+
+-------
+Write code to auto populate default rows in table if the table is empty e.g. WalletType, route. 
+
+
+Now where I have listed those KPI?
+May be in artifact 1 in timescaledb documentation.
+
+-------
+Vehicle repair without accident
+With accident
+
+Normal expense
+Business Maintenance & Expansion
+
+💀------
+API logic:
+When a vehicle or a route is created, corresponding wallet is to be created
+ and corresponding KPI timescale queries are created.
+When an employee is created, 
+Corresponding wallet of subtype employee_external is created.
+ & if an employee is of role conductor or manager then along with external, internal wallet too gets created
+ 
+💀--------
+Go through png to find more wallet subtypes
+💀
+Wallets
+Subtype: Govt
+Office-1
+No office - - black payments
+
+Subtype: Association
+Association-BBS, Association-ctc, Association-Dhenkanal
+Note : funding, or party by me
+
+Subtype: hidden
+RouteID_0, _1, _2
+VehicleRepairID_0, _1, _2
+
+Subtype: owner
+Owner_01 (I), owner_01(E), ownerCombined_(E) 
+
+
+Subtype : Locker
+Locker_1, Locker_2
+
+Subtype: Adjustment
+Adjustment 
+
+P. S. Adjustment to locker if total of all wallet needs to be adjusted. 
+
+Subtype: Bank
+
+Subtype: employee_internal
+
+Subtype: employee_external
+
+Subtype: Other Important Person 
+Investor - 1, _2, 
+Govt official_1 (// here we are specifically tracking this person on short notice) 
+
+Subtype: miscellaneous 
+
+
+💀❤️❤️❤️❤️❤️❤️---------
+FTL FLOWS
+Journey - > route to conductor, conductor to owner
+Vehicle Repair -> owner to conductor, conductor to VehicleRepairID_0.
+In desc repair_shop_owner details to be provided
+----------------
+SYSTEM CHECK 
+If sum of FTL did not match with wallet amount, then there's been error in the system.
+
+If sum of wallet did not match with physical cash, then adjustment transaction needs to be made. 
+i.e. We might have lost that money. 
+----------------------------------------
+CREATE JOURNEY FLOW:
+Sequence diagram needs to be created :
+
+Add journey, add journey ledger->
+UI(Received data, received amount) ->
+Received amount - > 
+Start transaction
+1. create first ftl row-> ftl -sends ftl id - > add row in journey ledger along with ftl id;
+2. Create second ftl row. 
+3. Add amount to the routeid_0 wallet
+4. End transaction
+Done
+
+So in reverse tracking -- finding details from ftl, we can look up ftl ID or (ftl ID - 1) in journey ledger. 
+
+
+
+P. S. We can find complete activity of a day by reverse tracking from ftl. 
+
+P. S. Journey ledger needs one more column of ftl ID 
+Likewise all other table that triggers ftl needs to have one more column of ftl so that we can reverse track. 
+
+P. S. This reverse track of a day is what homepage would show. 
+Journey that are incomplete to be marked in a separate background color. 
+
+P. S. Likewise create vehicle repair would add double ftl row and wallet update. 
+
+P. S. So for every other api, we need to see how many ftl to be added. And what are the corresponding wallets amount needs to be modified. 
+
+SEQUENCE FOR OTHER TRANSACTION:
+
+UI(received data, received amount) ->
+Start transaction 
+1. Create first ftl row-> add OT table with received ftl Id 
+2. Subtract amount from paid by wallet
+3. Add amount to paid to wallet
+End transaction
+
+
+SEQUENCE FOR CREATE ACCIDENT EXPENSE
+(Main wallet to conductor/manager internal wallet transaction would be first but not a part of this sequence) 
+
+UI(received data, received amount) ->
+Start transaction 
+1. Create first ftl row-> add accident expense table with received ftl Id 
+2. Subtract amount from paid by wallet ( conductor / manger) 
+// populate internal wallets with Subtypes first
+4. Add amount to paid to wallet
+VehicleRepairID_0.
+(In desc repair_shop_owner details to be provided) 
+End transaction
+
+
+
+
+SEQUENCE FOR INSURANCE CLAIM
+
+
+---------------------------------------
+GOOGLE : How to define transaction in spring jpa with multiple tables
+
+
+💀❤️❤️❤️❤️❤️❤️------------------------
+UI JOURNEY :
+If journeyledgerid in journey row in null then show a (+) plus sign that will allow to add journey ledger. 
+Also in viewlist mark with an indication of incomplete
+
+In journey ledger submit 
+
+UI OTHER TRANSACTION :
+
+Once selected paid by: in label populate as internal or external. 
+
+
+ACCIDENT / NON ACCIDENT REPAIR EXPENSE:
+populate only internal wallets with Subtypes first in paid by section. 
+
+DASHBOARD :
+WALLET
+Refresh button would be there. 
+Once clicked and response received an 'alert is to be shown as "updated"'. 
+
+
+
+-----------------------
+UI📳
+Horizontal infinite scroll:
+https://youtu.be/198rGzyUM50?si=aVA4gNj46oPzLzzZ
+
+
+

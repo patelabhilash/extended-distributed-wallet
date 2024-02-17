@@ -19,7 +19,10 @@ public class Wallet {
     private long walletId;
 
     @Column(name = "wallet_type")
-    private WalletType walletType;
+    private String walletType;
+
+    @Column(name = "wallet_category")
+    private String walletCategory;
 
     @Column(name = "name")
     private String name;

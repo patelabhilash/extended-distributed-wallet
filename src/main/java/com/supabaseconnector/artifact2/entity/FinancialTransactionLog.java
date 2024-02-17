@@ -12,6 +12,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -33,6 +35,9 @@ public class FinancialTransactionLog {
     @Column(name = "note")
     private String note;
 
+    @Column(name = "additional_desc")
+    private String additionalDesc;
+
     @Column(name = "transaction_date")
     private Date transactionDate;
 
@@ -41,11 +46,13 @@ public class FinancialTransactionLog {
 
     @Column(name = "last_updated_device_id")
     private String lastUpdatedDeviceId;
-
-    @Column(name = "paid_by")
+    
+    @OneToOne
+    @JoinColumn(name = "paid_by_id")
     private Wallet paidBy;
 
-    @Column(name = "paid_to")
+    @OneToOne
+    @JoinColumn(name = "paid_to_id")
     private Wallet paidTo;
 
     @Column(name = "amount")

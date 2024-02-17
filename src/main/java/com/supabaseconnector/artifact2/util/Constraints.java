@@ -42,6 +42,10 @@ public enum WalletNameSuggestions {
 
 }
 
+public enum walletSubTypes {
+
+}
+
 public enum AccidentStatus {
     CREATED,REPAIRED,CLAIMED;
 

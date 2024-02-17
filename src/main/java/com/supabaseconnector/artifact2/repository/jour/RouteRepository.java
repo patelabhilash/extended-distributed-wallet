@@ -8,10 +8,10 @@ import com.supabaseconnector.artifact2.entity.jour.Route;
 
 public interface RouteRepository extends JpaRepository<Route, Long> {
 
-  List<Route> findByOriginAndDestination(String origin, String destination);
+  // List<Route> findByOriginAndDestination(String originLocationName, String destinationLocationName);
   
-  List<Route> findByDistanceLessThan(double distance);
+  List<Route> findByDistanceInKmLessThan(double distanceInKm);
 
-  List<Route> findByDurationLessThan(double duration);
+  List<Route> findByTravelDurationInHourGreaterThan(double travelDurationInHour);
 
 }

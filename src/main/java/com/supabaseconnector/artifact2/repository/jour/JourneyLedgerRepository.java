@@ -8,8 +8,8 @@ import com.supabaseconnector.artifact2.entity.jour.JourneyLedger;
 
 public interface JourneyLedgerRepository extends JpaRepository<JourneyLedger, Long> {
 
-  List<JourneyLedger> findByOriginAndDestination(String origin, String destination);
+  // List<JourneyLedger> findByOriginAndDestination(String originLocationName, String destinationLocationName);
   
-  JourneyLedger findFirstByOrderByIdDesc();
+  JourneyLedger findByJourneyLedgerId (Long journeyLedgerId);
 
 }

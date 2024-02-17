@@ -1,5 +1,6 @@
 package com.supabaseconnector.artifact2.repository.jour;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,10 +9,10 @@ import com.supabaseconnector.artifact2.entity.jour.Vehicle;
 
 public interface VehicleRepository extends JpaRepository<Vehicle, String> {
 
-  List<Vehicle> findByModel(String model);
+  List<Vehicle> findByChasisNo(String chasisNo);
   
-  List<Vehicle> findByMake(String make);
+  List<Vehicle> findByVehicleNumber(String vehicleNumber);
 
-  Long countByModel(String model);
+  List<Vehicle> findBylastFitnessDateLessThan(Date todayOrFutureDate);
 
 }

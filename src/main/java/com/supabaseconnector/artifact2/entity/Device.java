@@ -1,5 +1,7 @@
 package com.supabaseconnector.artifact2.entity;
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,6 +22,9 @@ public class Device {
 
     @Column(name = "imei")
     String imei;
+
+    @Column(name = "registration_date")
+    Date registrationDate;
 
     @Column(name = "is_active")
     boolean isActive; // manually set to active Once registered

@@ -12,5 +12,5 @@ public interface LocationRepository extends JpaRepository<Location, Long> {
 
     Location findByLocationId(Long locationId);
 
-    List<Location> findByCity(String city);
+    List<Location> findByLocationName(String locationName);
 }

@@ -7,9 +7,9 @@ import com.supabaseconnector.artifact2.util.Constraints.WalletType;
 
 public interface WalletRepository extends JpaRepository<Wallet, Long> {
 
-  Wallet findByWalletId(String walletId);
+  Wallet findByWalletId(long walletId);
   
-  void deleteByWalletId(String walletId);
+  void deleteByWalletId(long walletId);
 
   long countByWalletType(WalletType walletType);
 

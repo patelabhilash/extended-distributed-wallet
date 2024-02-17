@@ -34,7 +34,7 @@ public class ArtifactController {
     @Autowired
     CommonApiService commonApiService;
 
-    @GetMapping("/path")
+    @GetMapping("/version")
     public String getVersion(@RequestParam String param) {
         return new String(param + "\n version: 1.0");
     }
