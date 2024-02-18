@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.supabaseconnector.artifact2.entity.Device;
 import com.supabaseconnector.artifact2.entity.FinancialTransactionLog;
-import com.supabaseconnector.artifact2.entity.NonAccidentRepairPaidSeparately;
+import com.supabaseconnector.artifact2.entity.NonAccidentRepairExpensePaidSeparately;
 import com.supabaseconnector.artifact2.entity.OtherTransaction;
 import com.supabaseconnector.artifact2.entity.Wallet;
 import com.supabaseconnector.artifact2.entity.acci.Accident;
@@ -109,17 +109,17 @@ public class CommonApiService {
         throw new UnsupportedOperationException("Unimplemented method 'viewJourneyLedger'");
     }
 
-    public ResponseEntity<NonAccidentRepairPaidSeparately> viewNarepsTransaction(long narepsId) {
+    public ResponseEntity<NonAccidentRepairExpensePaidSeparately> viewNarepsTransaction(long narepsId) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'viewNarepsTransaction'");
     }
 
-    public ResponseEntity<String> createNarepsTransaction(NonAccidentRepairPaidSeparately nareps) {
+    public ResponseEntity<String> createNarepsTransaction(NonAccidentRepairExpensePaidSeparately nareps) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'createNarepsTransaction'");
     }
 
-    public ResponseEntity<String> updateNarepsTransaction(NonAccidentRepairPaidSeparately nareps) {
+    public ResponseEntity<String> updateNarepsTransaction(NonAccidentRepairExpensePaidSeparately nareps) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'updateNarepsTransaction'");
     }

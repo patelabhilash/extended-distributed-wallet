@@ -13,7 +13,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "non_accident_repair_paid_separately")
-public class NonAccidentRepairPaidSeparately {
+public class NonAccidentRepairExpensePaidSeparately {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

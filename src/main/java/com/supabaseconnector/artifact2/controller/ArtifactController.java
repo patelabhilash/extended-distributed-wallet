@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.supabaseconnector.artifact2.entity.Device;
 import com.supabaseconnector.artifact2.entity.FinancialTransactionLog;
-import com.supabaseconnector.artifact2.entity.NonAccidentRepairPaidSeparately;
+import com.supabaseconnector.artifact2.entity.NonAccidentRepairExpensePaidSeparately;
 import com.supabaseconnector.artifact2.entity.OtherTransaction;
 import com.supabaseconnector.artifact2.entity.Wallet;
 import com.supabaseconnector.artifact2.entity.acci.Accident;
@@ -126,19 +126,19 @@ public class ArtifactController {
     }
 
     @GetMapping("/t/nv")
-    public ResponseEntity<NonAccidentRepairPaidSeparately> viewNarepsTransaction(@RequestParam long narepsId) { // D in
+    public ResponseEntity<NonAccidentRepairExpensePaidSeparately> viewNarepsTransaction(@RequestParam long narepsId) { // D in
                                                                                                                 // direct
                                                                                                                 // db
         return commonApiService.viewNarepsTransaction(narepsId);
     }
 
     @PostMapping("/t/nc")
-    public ResponseEntity<String> createNarepsTransaction(@RequestBody NonAccidentRepairPaidSeparately nareps) {
+    public ResponseEntity<String> createNarepsTransaction(@RequestBody NonAccidentRepairExpensePaidSeparately nareps) {
         return commonApiService.createNarepsTransaction(nareps);
     }
 
     @PutMapping("/t/nu")
-    public ResponseEntity<String> updateNarepsTransaction(@RequestBody NonAccidentRepairPaidSeparately nareps) {
+    public ResponseEntity<String> updateNarepsTransaction(@RequestBody NonAccidentRepairExpensePaidSeparately nareps) {
         return commonApiService.updateNarepsTransaction(nareps);
     }
 
