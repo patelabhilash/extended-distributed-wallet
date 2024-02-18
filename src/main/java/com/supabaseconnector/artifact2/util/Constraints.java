@@ -2,6 +2,7 @@ package com.supabaseconnector.artifact2.util;
 
 public interface Constraints {
 
+    //J = journey Income, RE = repair expense, BO= Bank Interface & Other Transaction Non Repair, N = non-accident repair expense paid separately (nareps), I = insurance claim, unlisted
     public enum TransactionType {
         J, RE, BO, N, I, UNLISTED;
     }

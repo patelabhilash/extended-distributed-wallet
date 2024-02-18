@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -19,7 +21,9 @@ public class OtherTransaction {
     @Column(name = "o_id")
     private long oId;
 
-    // add financialTransactionClass
+    // uni-directional
+    @OneToOne(optional = true, orphanRemoval = true)
+    @JoinColumn(name = "financial_transaction_log_id")
+    private FinancialTransactionLog ftl;
 
-    //
 }
