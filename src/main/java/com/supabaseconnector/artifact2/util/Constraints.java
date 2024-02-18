@@ -41,6 +41,8 @@ public interface Constraints {
         Route_KOL_BBS_0200PM,
         VehicleRepair_OD02BM2219,
         VehicleRepair_OD02BK2219,
+        Route_Tourist_sameDayArrival,
+        Route_Tourist_nextDayArrival,
         // GovtPaperWorks_E
         TransportOffice_BBS,
         RTO_02,
