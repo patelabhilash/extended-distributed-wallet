@@ -42,8 +42,8 @@ public class Route {
     @Column(name = "travel_duration_in_hour")
     private double travelDurationInHour;
 
-    @Column(name = "is_arrival_same_day")
-    private boolean isArrivalSameDay;
+    @Column(name = "is_arrival_on_same_day")
+    private boolean isArrivalOnSameDay;
 
     @OneToMany(mappedBy = "route", orphanRemoval = true)
     private List<Stop> allStops;

@@ -27,7 +27,7 @@ public class JourneyPassengerRow {
     @Column(name = "passenger_count")
     private long passengerCount;
 
-    @Column(name = "price_per_head")
-    private long pricePerHead;
+    @Column(name = "fare_per_head")
+    private long farePerHead;
 
 }

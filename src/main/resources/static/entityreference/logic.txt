@@ -173,7 +173,6 @@ End transaction
 
 
 
-
 SEQUENCE FOR INSURANCE CLAIM
 
 
@@ -195,18 +194,34 @@ Once selected paid by: in label populate as internal or external.
 
 ACCIDENT / NON ACCIDENT REPAIR EXPENSE:
 populate only internal wallets with Subtypes first in paid by section. 
+-----------------------------------
+DASHBOARD📳 :
+// if possible make dashboard accordian
+1. WALLET KPI (sum of all internal, sum of all internal/2) //as ownerCount = 2
+wallet name, amount
+2. WALLET internal
+wallet name, amount
+3. WALLET external
+wallet name, amount
+4. EMPLOYEE
+short name, full name, role, mobileNumber, isDocumentComplete
+5. OTHER KPI (no graph)
+e.g. monthly, annual, total KPI
 
-DASHBOARD :
-WALLET
-Refresh button would be there. 
+Refresh button would be there on top. 
 Once clicked and response received an 'alert is to be shown as "updated"'. 
+
 
 
 
 -----------------------
 UI📳
 Horizontal infinite scroll:
-https://youtu.be/198rGzyUM50?si=aVA4gNj46oPzLzzZ
+Endless scrolling :
 
+https://medium.com/@giorgos.patronas1/endless-scrolling-in-android-with-jetpack-compose-af1f55a03d1a#:~:text=The%20main%20idea%20behind%20infinite,of%20the%20currently%20visible%20content.
+
+UI: in OtherTransaction
+Reason examples : advance, advance for repair, advance for journey of the route NPD-BBS-13-12-2021
 
 

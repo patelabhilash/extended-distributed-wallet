@@ -30,6 +30,12 @@ public class Employee {
     @Column(name = "aadhar_no")
     private String aadharNo;
 
+    @Column(name = "mobile_no")
+    private String mobileNo;
+
     @Column(name = "is_document_complete")
     private boolean isDocumentComplete;
+
+    @Column(name = "is_active")
+    private boolean isActive;
 }

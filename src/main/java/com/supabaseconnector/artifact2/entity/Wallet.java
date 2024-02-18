@@ -1,12 +1,23 @@
 package com.supabaseconnector.artifact2.entity;
 
+import com.supabaseconnector.artifact2.util.Constraints.WalletCategory;
+import com.supabaseconnector.artifact2.util.Constraints.WalletType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "wallet")
 public class Wallet {
@@ -16,11 +27,13 @@ public class Wallet {
     @Column(name = "wallet_id")
     private long walletId;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "wallet_type")
-    private String walletType;
+    private WalletType walletType;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "wallet_category")
-    private String walletCategory;
+    private WalletCategory walletCategory;
 
     @Column(name = "name")
     private String name;
