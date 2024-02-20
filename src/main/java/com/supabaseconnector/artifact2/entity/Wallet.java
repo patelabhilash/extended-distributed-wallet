@@ -7,8 +7,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -23,9 +21,12 @@ import lombok.NoArgsConstructor;
 public class Wallet {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "wallet_id")
-    private long walletId;
+    @Column(name = "wallet_name")
+    private String walletName;
+
+    @Column(name = "desc")
+    private String desc;
+
 
     @Enumerated(EnumType.STRING)
     @Column(name = "wallet_type")
@@ -35,14 +36,8 @@ public class Wallet {
     @Column(name = "wallet_category")
     private WalletCategory walletCategory;
 
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "desc")
-    private String desc;
-
     @Column(name = "amount")
-    private double amount; // the amount the wallet possess , to be updated in each transaction
+    private double balance; // the amount the wallet possess , to be updated in each transaction
 
 }
 

@@ -1,0 +1,102 @@
+{
+    "wallets" : [
+        {
+            "name" : "Locker_SAMPLE_I",
+            "desc" : "locker - locker number",
+            "walletType" : "INTERNAL",
+            "walletCategory" : "Locker",
+            "balance" : 0
+        },
+        {
+            "name" : "SAMPLE_Bank_E",
+            "desc" : "bank is external",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "Bank",
+            "balance" : 0
+        },
+        {
+            "name" : "Route_SAMPLE",
+            "desc" : "route - source - destination - departure time",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "Hidden_E",
+            "balance" : 0
+        },
+        {
+            "name" : "VehicleRepair_SAMPLE",
+            "desc" : "VehicleRepair - vehicle number",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "Hidden_E",
+            "balance" : 0
+        },
+        {
+            "name" : "Owner_SAMPLE_I",
+            "desc" : "internal owner wallet",
+            "walletType" : "INTERNAL",
+            "walletCategory" : "Owner",
+            "balance" : 0
+        },
+        {
+            "name" : "Owner_SAMPLE_E",
+            "desc" : "external owner wallet",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "Owner",
+            "balance" : 0
+        },
+        {
+            "name" : "EMP_SAMPLE_I",
+            "desc" : "emp - shortname - internal wallet",
+            "walletType" : "INTERNAL",
+            "walletCategory" : "Employee",
+            "balance" : 0
+        },
+        {
+            "name" : "EMP_SAMPLE_E",
+            "desc" : "emp - shortname - external wallet",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "Employee",
+            "balance" : 0
+        },
+        {
+            "name" : "Investor_SAMPLE",
+            "desc" : "tracking as an VIP",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "ImportantPerson_E",
+            "balance" : 0
+        },
+        {
+            "name" : "business_maintenance_and_expansion",
+            "desc" : "",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "miscellaneous_E",
+            "balance" : 0
+        },
+        {
+            "name" : "miscellaneous",
+            "desc" : "",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "miscellaneous_E",
+            "balance" : 0
+        },
+        {
+            "name" : "Adjustment_E",
+            "desc" : "",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "Adjustment",
+            "balance" : 0
+        },
+        {
+            "name" : "Route_Tourist_sameDayArrival",
+            "desc" : "on tourist permit",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "Hidden_E",
+            "balance" : 0
+        },
+        {
+            "name" : "Route_Tourist_nextDayArrival",
+            "desc" : "on tourist permit",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "Hidden_E",
+            "balance" : 0
+        }
+    ]
+}

@@ -1,0 +1,91 @@
+{
+    "datainfo": "first one in each is the default one",
+    "owners" : ["AP", "CKD", "AP_&_CKD"],
+    "lockers" : ["Sesu_Home", "CKD_BBS_House"],
+    "banks" : ["Main_SBI", "AP_AXIS", "CKD_SBI", "CKD_AXIS"],
+    "importants" : ["Investor_nanda","Investor_bhai", "GovtEmp01"],
+    "employees" : [
+        "sesu", "shortname01", "shortname02", "shortname03"
+    ],
+    "routes" : [
+        {
+            "origin" : "",
+            "destination" : "",
+            "departureTime" : ""
+        }
+    ],
+    "vehicles" :[
+        "", "OD02XX2219", "OD02XY2219"
+    ],
+    "wallets" : [
+        {
+            "walletName" : "SAMPLE",
+            "desc" : "not a real wallet",
+            "walletType" : "INTERNAL",
+            "walletCategory" : "Hidden_E",
+            "balance" : 0
+        },
+        {
+            "walletName" : "RTO_02",
+            "desc" : "RTO office bbsr",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "GovtPaperWorks_E",
+            "balance" : 0
+        },{
+            "walletName" : "RTO_33",
+            "desc" : "RTO office bbsr",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "GovtPaperWorks_E",
+            "balance" : 0
+        },
+        {
+            "walletName" : "RTO_26",
+            "desc" : "RTO office npd",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "GovtPaperWorks_E",
+            "balance" : 0
+        },
+        {
+            "walletName" : "TransportOffice_CTC",
+            "desc" : "State Transport Authority Odisha cuttack",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "GovtPaperWorks_E",
+            "balance" : 0
+        },
+        {
+            "walletName" : "RTO_WB_04",
+            "desc" : "RTO office kolkata",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "GovtPaperWorks_E",
+            "balance" : 0
+        },
+        {
+            "walletName" : "black",
+            "desc" : "uncategorized office",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "GovtPaperWorks_E",
+            "balance" : 0
+        },
+        {
+            "walletName" : "Association_BBS",
+            "desc" : "",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "Association_E",
+            "balance" : 0
+        },
+        {
+            "walletName" : "Association_CTC",
+            "desc" : "",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "Association_E",
+            "balance" : 0
+        },
+        {
+            "walletName" : "Association_Dhenkanal",
+            "desc" : "",
+            "walletType" : "EXTERNAL",
+            "walletCategory" : "Association_E",
+            "balance" : 0
+        }
+    ]
+}

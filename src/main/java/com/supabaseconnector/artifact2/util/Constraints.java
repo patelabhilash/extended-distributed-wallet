@@ -45,7 +45,7 @@ public interface Constraints {
         Route_Tourist_sameDayArrival,
         Route_Tourist_nextDayArrival,
         // GovtPaperWorks_E
-        TransportOffice_BBS,
+        TransportOffice_CTC,
         RTO_02,
         RTO_33,
         RTO_26,

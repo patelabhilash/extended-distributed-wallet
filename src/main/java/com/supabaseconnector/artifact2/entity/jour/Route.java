@@ -1,6 +1,12 @@
 package com.supabaseconnector.artifact2.entity.jour;
 
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.supabaseconnector.artifact2.repository.jour.LocationRepository;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,10 +16,17 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Table(name = "route")
 public class Route {
 
@@ -22,22 +35,16 @@ public class Route {
     @Column(name = "route_id")
     private long routeId;
 
-    @OneToOne
-    @JoinColumn(name = "location_id", insertable = false, updatable = false)
-    private Location origin;
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "route_origin_id")
+    private RouteOrigin origin;
 
-    @OneToOne
-    @JoinColumn(name = "location_id", insertable = false, updatable = false)
-    private Location destination;
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "route_destination_id")
+    private RouteDestination destination;
 
     @Column(name = "distance_in_km")
     private double distanceInKm;
-
-    @Column(name = "departure_time")
-    private String departureTime;
-
-    @Column(name = "arrival_time")
-    private String arrivalTime;
 
     @Column(name = "travel_duration_in_hour")
     private double travelDurationInHour;
@@ -46,14 +53,18 @@ public class Route {
     private boolean isArrivalOnSameDay;
 
     @OneToMany(mappedBy = "route", orphanRemoval = true)
-    private List<Stop> allStops;
+    private List<Stop> stops;
 
-    @OneToMany
-    @JoinColumn(name = "stop_id")
-    private List<Stop> passengerOnboardingStops;
+    public Route(String originLocation, String departureTime, String destinationLocation, String arrivalTime){
+        this.origin = new RouteOrigin(departureTime , originLocation);
+        this.destination = new RouteDestination(arrivalTime, destinationLocation);
+    }
 
-    @OneToMany
-    @JoinColumn(name = "stop_id")
-    private List<Stop> refreshmentStops;
+    
+
+    public Route(RouteOrigin origin, RouteDestination destination){
+        this.origin = origin;
+        this.destination = destination;
+    }
 
 }

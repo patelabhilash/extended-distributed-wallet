@@ -1,0 +1,12 @@
+dismantle route entity
+
+shift route entity to route model
+
+add these attributes to stop entity:
+
+isrefreshmentStop
+
+
+create OriginStop entity
+
+create DestinationStop entity

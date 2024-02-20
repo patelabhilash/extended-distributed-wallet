@@ -1,0 +1,18 @@
+{
+    "employees" :[],
+    "routes" : [],
+    "vehicles" : [],
+    "routesample" : {
+        "origin" : {
+            "departureTime" : "",
+            "location" : {
+                "locationName" : ""
+            }
+        },
+        "destination" : {
+            "location" : {
+                "locationName" : ""
+            }
+        }
+    }
+}

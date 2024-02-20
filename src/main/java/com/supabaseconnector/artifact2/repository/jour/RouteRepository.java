@@ -5,13 +5,21 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.supabaseconnector.artifact2.entity.jour.Route;
+import com.supabaseconnector.artifact2.entity.jour.RouteDestination;
+import com.supabaseconnector.artifact2.entity.jour.RouteOrigin;
 
 public interface RouteRepository extends JpaRepository<Route, Long> {
 
-  // List<Route> findByOriginAndDestination(String originLocationName, String destinationLocationName);
-  
-  List<Route> findByDistanceInKmLessThan(double distanceInKm);
+    Route findByOriginAndDestination(RouteOrigin origin, RouteDestination destination);
 
-  List<Route> findByTravelDurationInHourGreaterThan(double travelDurationInHour);
+    List<Route> findByOriginLocationLocationNameAndDestinationLocationLocationName(
+            String originLocationLocationName, String destinationLocationLocationName);
+
+    Route findByOriginLocationLocationNameAndOriginDepartureTimeAndDestinationLocationLocationName(
+            String originLocationLocationName, String originDepartureTime, String destinationLocationLocationName);
+
+    List<Route> findByDistanceInKmLessThan(double distanceInKm);
+
+    List<Route> findByTravelDurationInHourGreaterThan(double travelDurationInHour);
 
 }

@@ -1,7 +1,8 @@
 package com.supabaseconnector.artifact2.entity;
 
-
 import java.util.Date;
+
+import org.hibernate.annotations.UpdateTimestamp;
 
 import com.supabaseconnector.artifact2.util.Constraints.TransactionType;
 
@@ -43,12 +44,13 @@ public class FinancialTransactionLog {
     @Column(name = "transaction_date")
     private Date transactionDate;
 
+    @UpdateTimestamp
     @Column(name = "last_updated_date")
     private Date lastUpdatedDate;
 
     @Column(name = "last_updated_device_id")
     private String lastUpdatedDeviceId;
-    
+
     @OneToOne
     @JoinColumn(name = "paid_by_id")
     private Wallet paidBy;
@@ -61,4 +63,3 @@ public class FinancialTransactionLog {
     private long amount;
 
 }
-

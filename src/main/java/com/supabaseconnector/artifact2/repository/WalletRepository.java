@@ -5,11 +5,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.supabaseconnector.artifact2.entity.Wallet;
 import com.supabaseconnector.artifact2.util.Constraints.WalletType;
 
-public interface WalletRepository extends JpaRepository<Wallet, Long> {
+public interface WalletRepository extends JpaRepository<Wallet, String> {
 
-  Wallet findByWalletId(long walletId);
+  Wallet findByWalletName(String walletName);
   
-  void deleteByWalletId(long walletId);
+  void deleteByWalletName(String walletName);
 
   long countByWalletType(WalletType walletType);
 

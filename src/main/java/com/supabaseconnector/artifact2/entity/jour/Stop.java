@@ -27,8 +27,8 @@ public class Stop {
     @JoinColumn(name = "route_id")
     private Route route;
 
-    @OneToOne
-    @JoinColumn(name = "location_id")
+    @ManyToOne
+    @JoinColumn(name = "location_name")
     private Location location;
 
     @Column(name = "arrival_time")
@@ -39,5 +39,11 @@ public class Stop {
 
     @Column(name = "stop_duration_in_minute")
     private int stopDurationInMinute;
+
+    @Column(name = "is_passenger_fare_start_zone")
+    private boolean isPassengerFareStartZone;
+
+    @Column(name = "is_refreshment_stop")
+    private  boolean isRefreshmentStop;
 
 }

@@ -8,9 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.supabaseconnector.artifact2.entity.jour.Location;
 
 @Repository
-public interface LocationRepository extends JpaRepository<Location, Long> {
-
-    Location findByLocationId(Long locationId);
+public interface LocationRepository extends JpaRepository<Location, String> {
 
     List<Location> findByLocationName(String locationName);
 }

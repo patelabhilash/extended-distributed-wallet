@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -29,5 +30,9 @@ public class JourneyPassengerRow {
 
     @Column(name = "fare_per_head")
     private long farePerHead;
+
+    @OneToOne
+    @JoinColumn(name = "location_name") //it includes all stops and the origin
+    private Location location;
 
 }
