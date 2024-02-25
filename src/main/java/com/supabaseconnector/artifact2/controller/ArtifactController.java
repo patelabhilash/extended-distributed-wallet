@@ -1,6 +1,6 @@
 package com.supabaseconnector.artifact2.controller;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +47,7 @@ public class ArtifactController {
 
     /* pool management API start */
     @GetMapping("/p/l")
-    public ResponseEntity<TransactionList> getPoolManagementList(@RequestParam Date date) { // pool management list
+    public ResponseEntity<TransactionList> getPoolManagementList(@RequestParam LocalDate date) { // pool management list
         return commonApiService.getPoolManagementList(date);
     }
 
@@ -90,7 +90,7 @@ public class ArtifactController {
     /* Transaction API start -- events - complete all CRUD */
 
     @PostMapping("/t/l")
-    public TransactionList getTransactionList(@RequestBody Date date) { // Event list -- J, N , O
+    public TransactionList getTransactionList(@RequestBody LocalDate date) { // Event list -- J, N , O
         return commonApiService.getTransactionList(date);
     }
 
@@ -161,7 +161,7 @@ public class ArtifactController {
     /* AccidentReport API start -- events - complete all CRUD */
 
     @GetMapping("/a/l")
-    public ResponseEntity<List<Accident>> getAccidentReportList(@RequestBody Date date) {// will show accident list not arl 
+    public ResponseEntity<List<Accident>> getAccidentReportList(@RequestBody LocalDate date) {// will show accident list not arl 
         //-- 10 past accidents and search will start from the date mentioned till 10 counts regardless of 10th accident date.
         return commonApiService.getAccidentReportList(date);
     }
@@ -217,7 +217,7 @@ public class ArtifactController {
     /* DashBoard API end */
     /* Financial Transaction Log API start -- events - part of dashboard */
     @GetMapping("/ftl/l")
-    public ResponseEntity<FinancialTransactionLog> getFinancialTransactionLog(@RequestBody Date date) {
+    public ResponseEntity<FinancialTransactionLog> getFinancialTransactionLog(@RequestBody LocalDate date) {
         // all transactionLog of the same day and 1 day past i.e. 2 days
         return commonApiService.getFinancialTransactionLog(date);
     }

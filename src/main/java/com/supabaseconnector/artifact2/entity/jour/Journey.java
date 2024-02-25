@@ -1,6 +1,6 @@
 package com.supabaseconnector.artifact2.entity.jour;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -25,7 +25,7 @@ public class Journey {
     private long journeyId;
 
     @Column(name = "journey_start_date")
-    private Date journeyStartDate;
+    private LocalDate journeyStartDate;
 
     @OneToOne
     @JoinColumn(name = "route_id")

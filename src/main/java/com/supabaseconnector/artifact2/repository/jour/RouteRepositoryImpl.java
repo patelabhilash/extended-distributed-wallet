@@ -1,5 +1,7 @@
 package com.supabaseconnector.artifact2.repository.jour;
 
+import java.time.LocalTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +16,7 @@ public class RouteRepositoryImpl {
     @Autowired
     LocationRepository locationRepository;
 
-    public Route saveRoute(String originLocation, String departureTime, String destinationLocation){
+    public Route saveRoute(String originLocation, LocalTime departureTime, String destinationLocation){
         if(originLocation == null || departureTime == null || destinationLocation == null) {
             return null;
         }

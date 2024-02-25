@@ -1,6 +1,6 @@
 package com.supabaseconnector.artifact2.repository.acci;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,6 +11,6 @@ public interface AccidentRepository extends JpaRepository<Accident, Long> {
 
     List<Accident> findByChasisNo(String chasisNo);
 
-    List<Accident> findByAccidentDateBetween(Date from, Date to);
+    // List<Accident> findByAccidentBetween(LocalDate from, LocalDate to);
 
 }

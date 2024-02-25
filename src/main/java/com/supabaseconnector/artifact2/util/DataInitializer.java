@@ -1,6 +1,7 @@
 package com.supabaseconnector.artifact2.util;
 
 import java.io.InputStream;
+import java.time.LocalTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,11 +84,11 @@ public class DataInitializer implements CommandLineRunner {
     }
 
     private void initializeConstantRoutes() {
-        initializeRoute(TOURIST_SPOT, "SAMEDAY",TOURIST_SPOT);
-        initializeRoute(TOURIST_SPOT, "NEXTDAY",TOURIST_SPOT);       
+        initializeRoute(TOURIST_SPOT, LocalTime.MIDNIGHT,TOURIST_SPOT); // sameday arrival logic
+        initializeRoute(TOURIST_SPOT, LocalTime.NOON,TOURIST_SPOT);     //nextday arrival logic
     }
 
-    private void initializeRoute(String originLocationName, String originDepartureTime, String destinationLocationName){
+    private void initializeRoute(String originLocationName, LocalTime originDepartureTime, String destinationLocationName){
         if(originLocationName == null || originDepartureTime == null || destinationLocationName == null) {
             return;
         }
@@ -99,7 +100,7 @@ public class DataInitializer implements CommandLineRunner {
     }
 
 
-    private Route getRoute(String originLocation, String departureTime, String destinationLocation) {
+    private Route getRoute(String originLocation, LocalTime departureTime, String destinationLocation) {
         if(originLocation == null || departureTime == null || destinationLocation == null) {
             return null;
         }

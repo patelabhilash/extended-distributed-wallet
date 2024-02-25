@@ -1,6 +1,6 @@
 package com.supabaseconnector.artifact2.repository;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,6 +17,6 @@ public interface FinancialTransactionLogRepository extends JpaRepository<Financi
 
     List<FinancialTransactionLog> findByPaidTo(Wallet wallet);
     
-    List<FinancialTransactionLog> findByTransactionDateBetween(Date startDate, Date endDate);
+    List<FinancialTransactionLog> findByTransactionDateBetween(LocalDate startDate, LocalDate endDate);
 
 }

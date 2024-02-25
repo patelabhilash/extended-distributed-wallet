@@ -1,6 +1,7 @@
 package com.supabaseconnector.artifact2.model;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,9 +22,9 @@ public class AccidentRepairExpenseUI {
 
     private String additionalDesc; //user input
 
-    private Date transactionDate; //user input that is already selected
+    private LocalDate transactionDate; //user input that is already selected
 
-    private Date lastUpdatedDate; //system input
+    private LocalDate lastUpdatedDate; //system input
 
     private String lastUpdatedDeviceId; //system input
 

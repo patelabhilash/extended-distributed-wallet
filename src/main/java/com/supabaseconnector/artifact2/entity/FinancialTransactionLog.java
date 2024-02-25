@@ -1,6 +1,6 @@
 package com.supabaseconnector.artifact2.entity;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -42,11 +42,11 @@ public class FinancialTransactionLog {
     private String additionalDesc;
 
     @Column(name = "transaction_date")
-    private Date transactionDate;
+    private LocalDateTime transactionDate;
 
     @UpdateTimestamp
     @Column(name = "last_updated_date")
-    private Date lastUpdatedDate;
+    private LocalDateTime lastUpdatedDate;
 
     @Column(name = "last_updated_device_id")
     private String lastUpdatedDeviceId;

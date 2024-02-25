@@ -1,5 +1,7 @@
 package com.supabaseconnector.artifact2.entity.jour;
 
+import java.time.LocalTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,19 +29,19 @@ public class RouteOrigin {
     private Route route;
 
     @Column(name = "departure_time")
-    private String departureTime;
+    private LocalTime departureTime;
 
     @ManyToOne
     @JoinColumn(name = "location_name")
     private Location location;
 
-    public RouteOrigin(String departureTime, String location) {
+    public RouteOrigin(LocalTime departureTime, String location) {
         this.departureTime = departureTime;
         this.location = new Location(location);
     }
 
-    public RouteOrigin(String departureTime, Location location) {
-        this.departureTime = departureTime;
+    public RouteOrigin(LocalTime departureTime, Location location) {
+        this.departureTime =departureTime;
         this.location = location;
     }
     

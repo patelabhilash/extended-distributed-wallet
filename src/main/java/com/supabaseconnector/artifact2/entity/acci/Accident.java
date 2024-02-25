@@ -1,6 +1,6 @@
 package com.supabaseconnector.artifact2.entity.acci;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import com.supabaseconnector.artifact2.util.Constraints.AccidentStatus;
 
@@ -26,10 +26,10 @@ public class Accident {
     private String chasisNo;
 
     @Column(name = "accident_date")
-    private Date accidentDate;
+    private LocalDateTime accidentDate;
 
     @Column(name = "updated_date")
-    private Date updatedDate;
+    private LocalDateTime updatedDate;
 
     @Column(name = "status")
     private AccidentStatus status;

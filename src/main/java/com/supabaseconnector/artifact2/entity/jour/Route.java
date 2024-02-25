@@ -1,5 +1,6 @@
 package com.supabaseconnector.artifact2.entity.jour;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +56,7 @@ public class Route {
     @OneToMany(mappedBy = "route", orphanRemoval = true)
     private List<Stop> stops;
 
-    public Route(String originLocation, String departureTime, String destinationLocation, String arrivalTime){
+    public Route(String originLocation, LocalTime departureTime, String destinationLocation, LocalTime arrivalTime){
         this.origin = new RouteOrigin(departureTime , originLocation);
         this.destination = new RouteDestination(arrivalTime, destinationLocation);
     }

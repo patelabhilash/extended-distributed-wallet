@@ -1,6 +1,6 @@
 package com.supabaseconnector.artifact2.service;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -34,7 +34,7 @@ public class CommonApiService {
         throw new UnsupportedOperationException("Unimplemented method 'registerDevice'");
     }
 
-    public ResponseEntity<TransactionList> getPoolManagementList(Date date) {
+    public ResponseEntity<TransactionList> getPoolManagementList(LocalDate date) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getPoolManagementList'");
     }
@@ -74,7 +74,7 @@ public class CommonApiService {
         throw new UnsupportedOperationException("Unimplemented method 'getRouteList'");
     }
 
-    public TransactionList getTransactionList(Date date) {
+    public TransactionList getTransactionList(LocalDate date) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getTransactionList'");
     }
@@ -142,7 +142,7 @@ public class CommonApiService {
     // -- 10 past accidents and search will start from the date mentioned till 10
     // counts regardless of 10th accident date.
     //maxAccidentPerMonth
-    public ResponseEntity<List<Accident>> getAccidentReportList(Date date) {
+    public ResponseEntity<List<Accident>> getAccidentReportList(LocalDate date) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAccidentReportList'");
     }
@@ -189,7 +189,7 @@ public class CommonApiService {
 
 
     //maxDays 
-    public ResponseEntity<FinancialTransactionLog> getFinancialTransactionLog(Date date) {
+    public ResponseEntity<FinancialTransactionLog> getFinancialTransactionLog(LocalDate date) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getFinancialTransactionLog'");
     }

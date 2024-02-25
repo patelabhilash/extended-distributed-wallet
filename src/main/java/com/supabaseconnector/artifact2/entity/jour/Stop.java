@@ -9,7 +9,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -27,7 +26,7 @@ public class Stop {
     @JoinColumn(name = "route_id")
     private Route route;
 
-    @ManyToOne
+    @ManyToOne(optional = true)
     @JoinColumn(name = "location_name")
     private Location location;
 

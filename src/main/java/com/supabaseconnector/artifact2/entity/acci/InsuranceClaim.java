@@ -1,6 +1,6 @@
 package com.supabaseconnector.artifact2.entity.acci;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import com.supabaseconnector.artifact2.entity.FinancialTransactionLog;
 
@@ -28,7 +28,7 @@ public class InsuranceClaim {
     private long accidentRepairExpenseId;
 
     @Column(name = "claim_received_date")
-    private Date claimReceivedDate;
+    private LocalDate claimReceivedDate;
 
     // paid to is to a bank_E
     // amount will be 0 as it's E to E transaction

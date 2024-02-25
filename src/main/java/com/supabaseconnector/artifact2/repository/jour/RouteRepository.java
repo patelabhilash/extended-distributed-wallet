@@ -1,5 +1,6 @@
 package com.supabaseconnector.artifact2.repository.jour;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,7 +17,7 @@ public interface RouteRepository extends JpaRepository<Route, Long> {
             String originLocationLocationName, String destinationLocationLocationName);
 
     Route findByOriginLocationLocationNameAndOriginDepartureTimeAndDestinationLocationLocationName(
-            String originLocationLocationName, String originDepartureTime, String destinationLocationLocationName);
+            String originLocationLocationName, LocalTime originDepartureTime, String destinationLocationLocationName);
 
     List<Route> findByDistanceInKmLessThan(double distanceInKm);
 

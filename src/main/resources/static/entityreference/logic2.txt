@@ -1,12 +1,61 @@
-dismantle route entity
+pending: route structure in json
+pending: route initialization from ERV
+pending: verifying initializeWalletsFromERVHolder();
+pending: cleaning init-data.json
+pending: now init route is constructed in java --> move it to pick up from json
+    as we will always initialize all future routes from json
 
+or we can completely rest it on DB as we can create backup.
+we can do create db backup, export db, import db
+# initialize DB with minimum data. export it as backup-0.
+
+The difference is json is checking data in current db if not present but applying backup will remove existing data.
+
+so, json approach is better. i.e. we can not compromise of FTL records.
+reference:
+https://github.com/orgs/supabase/discussions/773
+
+pending: many logic will move from DataInitializer.java to xxservice.java
+-----------
+dismantle route entity (done)
 shift route entity to route model
-
 add these attributes to stop entity:
+isrefreshmentStop (done)
+create OriginStop entity (done)
+create DestinationStop entity (done)
 
-isrefreshmentStop
+=========================
+ERV and wallet relationship
+we can put below in wallet desc
+E = shortName
+R = originName-destinationName-departureTime
+V = vehicleNumber
+-------------------------------------------------
+//"EMP_" + employee.getShortName() + "_E"
+Q. find wallet from employee:
+return walletRepository.findById("EMP_" + employee.getShortName() + "_E");
+return walletRepository.findById("EMP_" + employee.getShortName() + "_I");
 
 
-create OriginStop entity
+Q. find employee from wallet
+getEmployee(walletName){
+    String employeeShortName = walletName.substring(4,-2);
+    return employeeRepository.findByShortName(employeeShortName);
+}
+---
+Q. find vehicle from wallet
+walletName  = "VehicleRepair_" + vehicle.getChasisNo()
+Q. find wallet from vehicle
+"VehicleRepair_" + vehicle.getChasisNo()
+----
 
-create DestinationStop entity
+Q. find wallet from route
+ String walletName = "Route_" + route.getOrigin().getLocation().getLocationName() + "_"
+                + route.getDestination().getLocation().getLocationName() + "_" + route.getOrigin().getDepartureTime();
+
+
+
+Q. find route from wallet
+route = routeRepository.findByOriginLocationLocationNameAndOriginDepartureTimeAndDestinationLocationLocationName
+----
+==================

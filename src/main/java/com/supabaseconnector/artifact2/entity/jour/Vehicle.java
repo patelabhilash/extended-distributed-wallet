@@ -1,12 +1,11 @@
 package com.supabaseconnector.artifact2.entity.jour;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
 import lombok.Data;
 
 @Data
@@ -22,7 +21,7 @@ public class Vehicle {
     private String vehicleNumber;
 
     @Column(name = "registrationDate")
-    private Date registrationDate;
+    private LocalDate registrationDate;
 
     @Column(name = "isFirstHand")
     private boolean isFirstHand;
@@ -31,7 +30,7 @@ public class Vehicle {
     private int seatCount;
 
     @Column(name = "lastFitnessDate")
-    private Date lastFitnessDate;
+    private LocalDate lastFitnessDate;
 
     @Column(name = "isRetired")
     private boolean isRetired; // default false
