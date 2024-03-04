@@ -77,12 +77,12 @@ public class ArtifactController {
     }
 
     @GetMapping("/p/vl")
-    public ResponseEntity<Vehicle> getVehicleList() { // CUD in direct db
+    public ResponseEntity<List<Vehicle>> getVehicleList() { // CUD in direct db
         return commonApiService.getVehicleList();
     }
 
     @GetMapping("/p/rl")
-    public ResponseEntity<Route> getRouteList() { // CUD in direct db
+    public ResponseEntity<List<Route>> getRouteList() { // CUD in direct db
         return commonApiService.getRouteList();
     }
 

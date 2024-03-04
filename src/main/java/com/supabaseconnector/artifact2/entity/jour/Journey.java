@@ -3,6 +3,8 @@ package com.supabaseconnector.artifact2.entity.jour;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.supabaseconnector.artifact2.entity.JourneyTransaction;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,6 +42,9 @@ public class Journey {
     private List<Employee> employees;
 
     @OneToOne(mappedBy = "journey", orphanRemoval = true)
-    private JourneyLedger journeyLedgerId;
+    private JourneyLedger journeyLedger;
+
+    @OneToMany(mappedBy = "journey", orphanRemoval = true)
+    private List<JourneyTransaction> journeyTransactionList;
 
 }

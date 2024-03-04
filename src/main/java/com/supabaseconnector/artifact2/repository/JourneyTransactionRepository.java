@@ -9,6 +9,8 @@ import com.supabaseconnector.artifact2.entity.JourneyTransaction;
 public interface JourneyTransactionRepository extends JpaRepository<JourneyTransaction, Long> {
 
     List<JourneyTransaction> findByJourneyTransactionId(Long journeyTransactionId);
+
+    List<JourneyTransaction> findByFtlFinancialTransactionLogId(Long financialTransactionLogId);
     
     JourneyTransaction findFirstByOrderByJourneyTransactionIdDesc();
     

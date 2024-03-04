@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.supabaseconnector.artifact2.entity.FinancialTransactionLog;
 import com.supabaseconnector.artifact2.entity.Wallet;
 import com.supabaseconnector.artifact2.util.Constraints.TransactionType;
+import java.time.LocalDateTime;
+
 
 public interface FinancialTransactionLogRepository extends JpaRepository<FinancialTransactionLog, Long> {
 
@@ -18,5 +20,9 @@ public interface FinancialTransactionLogRepository extends JpaRepository<Financi
     List<FinancialTransactionLog> findByPaidTo(Wallet wallet);
     
     List<FinancialTransactionLog> findByTransactionDateBetween(LocalDate startDate, LocalDate endDate);
+
+    List<FinancialTransactionLog> findByTransactionTypeAndTransactionDateBetween( TransactionType transactionType, LocalDate startDate, LocalDate endDate);
+
+    List<FinancialTransactionLog> findByTransactionDate(LocalDateTime transactionDate);
 
 }

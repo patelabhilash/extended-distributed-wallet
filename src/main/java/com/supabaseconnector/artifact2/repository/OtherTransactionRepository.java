@@ -6,6 +6,8 @@ import com.supabaseconnector.artifact2.entity.OtherTransaction;
 
 public interface OtherTransactionRepository extends JpaRepository<OtherTransaction, Long> {
 
+  OtherTransaction findByFtlFinancialTransactionLogId(Long ftlId);
+
   //may need to move to FTL
   // List<OtherTransaction> findByAmountGreaterThan(BigDecimal amount);
   

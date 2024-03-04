@@ -5,6 +5,8 @@ pending: cleaning init-data.json
 pending: now init route is constructed in java --> move it to pick up from json
     as we will always initialize all future routes from json
 
+pending: need to add getter explicitly for boolean data types in entity with 'is' as prefix as a fix to springboot bug.
+
 or we can completely rest it on DB as we can create backup.
 we can do create db backup, export db, import db
 # initialize DB with minimum data. export it as backup-0.

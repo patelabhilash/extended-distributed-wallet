@@ -9,7 +9,7 @@ import com.supabaseconnector.artifact2.entity.acci.Accident;
 
 public interface AccidentRepository extends JpaRepository<Accident, Long> {
 
-    List<Accident> findByChasisNo(String chasisNo);
+    List<Accident> findByVehicleChasisNo(String chasisNo);
 
     // List<Accident> findByAccidentBetween(LocalDate from, LocalDate to);
 

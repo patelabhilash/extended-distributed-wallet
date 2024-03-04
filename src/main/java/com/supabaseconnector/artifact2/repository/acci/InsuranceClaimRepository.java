@@ -6,9 +6,9 @@ import com.supabaseconnector.artifact2.entity.acci.InsuranceClaim;
 
 public interface InsuranceClaimRepository extends JpaRepository<InsuranceClaim, Long> {
 
-  InsuranceClaim findByAccidentRepairExpenseId(long accidentRepairExpenseId);
+  InsuranceClaim findByAccidentRepairExpenseAccidentRepairExpenseId(long accidentRepairExpenseId);
   
-  void deleteByAccidentRepairExpenseId(long accidentRepairExpenseId);
+  void deleteByAccidentRepairExpenseAccidentRepairExpenseId(long accidentRepairExpenseId);
 
 
 }

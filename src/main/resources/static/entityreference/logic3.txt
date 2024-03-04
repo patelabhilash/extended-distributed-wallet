@@ -1,0 +1,32 @@
+three types of transaction
+journey (journey income, list of journey expense) ; journey income true, journey income false.
+vehicle (repair) in repair (-accident, non-accident); so total 2 types of vehicle expenses; nareps, accident
+others
+
+so why not UI be like this also?
+
+
+so, E = journey (journey, journey ledger, journey income true, journey income false ), nareps, others
+A = accident expense
+
+---------------
+from conductor parchi
+the app handler needs to get these : journey income true, journey income false , nareps
+
+the journey income false either can be put in a single journey or needs to be put in both by dividing by 2.
+-------------------
+flow to add Route?
+
+add List<Location>  to Location table.
+create routeOrigin & routeDestination  &then get their id
+create stops  &then get their id
+create route now.
+
+
+-------------
+handle insurance claim?
+
+there are cases based on that we need to resolve. might need db change related to it?
+
+
+

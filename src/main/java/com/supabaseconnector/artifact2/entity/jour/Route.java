@@ -3,10 +3,6 @@ package com.supabaseconnector.artifact2.entity.jour;
 import java.time.LocalTime;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.supabaseconnector.artifact2.repository.jour.LocationRepository;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,7 +13,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

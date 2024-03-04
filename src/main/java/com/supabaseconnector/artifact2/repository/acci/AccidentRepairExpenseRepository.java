@@ -13,13 +13,15 @@ import com.supabaseconnector.artifact2.entity.acci.AccidentRepairExpense;
 @Repository
 public interface AccidentRepairExpenseRepository extends JpaRepository<AccidentRepairExpense, Long> {
 
-  List<AccidentRepairExpense> findByAccidentId(long accidentId);
+  List<AccidentRepairExpense> findByAccidentAccidentId(long accidentId);
 
-  @Query("SELECT a FROM AccidentRepairExpense a WHERE a.accidentId = :accidentId")
-  List<AccidentRepairExpense> getByAccidentId(@Param("accidentId") long accidentId);
+  List<AccidentRepairExpense> getByAccidentAccidentId( long accidentId);
 
+  /* //disabled as currently not in use
+   
   @Modifying
   @Query("UPDATE AccidentRepairExpense a SET a.accidentId = :accidentId WHERE a.accidentRepairExpenseId = :id")
   void updateAccidentId(@Param("id") long id, @Param("accidentId") long accidentId);
-
+  */
+  
 }

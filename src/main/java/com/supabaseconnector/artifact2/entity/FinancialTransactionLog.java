@@ -17,11 +17,18 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
 @Entity
+@Getter
+@Setter
 @Table(name = "financial_transaction_log")
 public class FinancialTransactionLog {
+
+    //ALLOWED VALUES: J , N , O :: RE, I
+    //I is from 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

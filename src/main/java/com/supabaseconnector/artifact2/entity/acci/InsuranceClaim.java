@@ -2,14 +2,11 @@ package com.supabaseconnector.artifact2.entity.acci;
 
 import java.time.LocalDate;
 
-import com.supabaseconnector.artifact2.entity.FinancialTransactionLog;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -24,17 +21,18 @@ public class InsuranceClaim {
     @Column(name = "insurance_claim_id")
     private long insuranceClaimId;
 
-    @Column(name = "accident_repair_expense_id")
-    private long accidentRepairExpenseId;
+    @OneToOne(mappedBy = "insuranceClaim")
+    private AccidentRepairExpense accidentRepairExpense;
 
     @Column(name = "claim_received_date")
     private LocalDate claimReceivedDate;
 
-    // paid to is to a bank_E
-    // amount will be 0 as it's E to E transaction
-    
-    // uni-directional
-    @OneToOne(optional = true, orphanRemoval = true)
-    @JoinColumn(name = "financial_transaction_log_id")
-    private FinancialTransactionLog ftl;
+    @Column(name = "amount_claimed")
+    private double amountClaimed;
+
+    @Column(name = "bank_name")
+    private String bankName; //to be populated from wallet subcategory the bank_E
+
+    //no transaction log for this as E to E transacation
+    // claimed amount and vehicle id can be track from this table
 }

@@ -9,6 +9,8 @@ public interface NonAccidentRepairExpensePaidSeparatelyRepository
 
     public NonAccidentRepairExpensePaidSeparately findByNarepsId(Long narepsId);
 
+    public NonAccidentRepairExpensePaidSeparately findByFtlFinancialTransactionLogId(Long ftlFinancialTransactionLogId);
+
     public void deleteByNarepsId(Long id);
 
 }
