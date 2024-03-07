@@ -8,6 +8,7 @@ so why not UI be like this also?
 
 so, E = journey (journey, journey ledger, journey income true, journey income false ), nareps, others
 A = accident expense
+nareps is others. it does not exist separately.(verified)
 
 ---------------
 from conductor parchi
