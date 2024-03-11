@@ -32,7 +32,14 @@ public class Device {
     @Column(name = "is_active")
     private boolean isActive; // manually set to active Once registered
 
+    /*
+    *so imei is the userid and the key is the password encoded with base64.
+    *authentication is done is we use backend and if only supabase is used then will simply check if key equals device_access_code.
+    *store a key in the app. encrypt it and store the encrypted in the db as device_access_code.
+    */
     @Column(name = "device_access_code")
-    private String deviceAccessCode; // manually given to user
+    private String deviceAccessCode; //
 
+    @Column(name = "device_unlock_code")
+    private String deviceUnlockCode; // manually given to user to be used in loginScreen of the app to access real features of the app.
 }

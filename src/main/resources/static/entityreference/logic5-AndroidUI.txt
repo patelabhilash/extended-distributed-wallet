@@ -1,0 +1,45 @@
+MainHolderScreen() -. if device not verified then FunFactScreen() else HomeHolderScreen()
+HomeScreen()
+FunFactScreen() -> one card , one "next" button. it will have two fun facts and next button will cycle these two with logic of nextFactId= (nextFactId+1)%2;
+
+use ListItem3 for each card
+all items are ListItem3 card
+
+HomeHolderScreen() -> LockScreen() -- if passed --> NavHolderScreen()
+
+NavHolderScreen() is with bottomNavigationBar
+HomeScreen()     -- is 1st navitem
+DisplayScreen()  -- is 2nd navitem
+NoteTakingScreen()    -- is 3rd navitem
+
+HomeScreen():
+    one column -- complete home screen
+        one row -- wallet cards holder
+            four fixed wallet card
+            one lazyrow of other wallets
+        one row
+            one item - add accident         -- AAFormScreen()
+            one item - add accident expense`-- AAEFormScreen()
+            one item - add insuranceClaim   -- AICFormScreen()
+        one row
+            one item - add journey          --AJFormScreen()
+            one item - add journeyLedger    --AJLFormScreen()
+            one item - add journeyTransaction--AJTFormScreen()
+        one row
+            one item - add wallet                           --AWFormScreen()
+            one item - simple placeholder for aesthetic     -- APlaceHolderFormScreen() // no required
+            one item - add otherExpenses                    --AOEFormScreen()
+        one lazyrow --- move it to other navitem (2nd navitem)
+            List of other cards like FTL, routes, employees, vehicles, etc
+                            -- names are FTLViewScreen(), RoutesViewScreen(), EmployeesViewScreen(), VehiclesViewScreen() etc.
+
+
+NoteTakingScreen()
+    first row would have the option to add a note and edit the selected note
+        add note -- selctDateField, note heading, note description.
+        view notes -- sort in date descending order.
+
+    can refer : https://www.youtube.com/watch?v=8ZLbv6TSa-U&list=PLRKyZvuMYSIMO2ebTldbwMTnDCn5klzjS
+
+other references:
+https://www.youtube.com/watch?v=t3ZonTbwzAs&list=PLRKyZvuMYSINkJXNAdJwZofK-1WvFeyqO&index=1

@@ -1,9 +1,11 @@
 package com.supabaseconnector.artifact2.controller;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -220,6 +222,48 @@ public class ArtifactController {
     public ResponseEntity<FinancialTransactionLog> getFinancialTransactionLog(@RequestBody LocalDate date) {
         // all transactionLog of the same day and 1 day past i.e. 2 days
         return commonApiService.getFinancialTransactionLog(date);
+    }
+
+    /* truncate database size to not exceed as supabase database size is limited to 500 MB */
+    @GetMapping("/truncate/monthly")
+    public ResponseEntity<String> truncateMonths() {
+        //commonApiService.truncateKeepingMonthlyData();
+        return new ResponseEntity<String>("success", HttpStatusCode.valueOf(200));
+    }
+
+    /* truncate database size to not exceed as supabase database size is limited to 500 MB */
+    @GetMapping("/truncate/annually")
+    public ResponseEntity<String> truncateYears() {
+        //commonApiService.truncateKeepingAnnuallyData();
+        return new ResponseEntity<String>("success", HttpStatusCode.valueOf(200));
+    }
+
+    /* truncate database size to not exceed as supabase database size is limited to 500 MB */
+    /*
+    INSTRUCTIONS:
+    take a local backup do the operation offline and then restore it
+    take a second copy just to be safe if any operation fails
+    It's better to do the operation offline as a very heavy operation
+    create a truncate wallet to be safe.
+     STEPS:
+     find all paidBy and paidTo pair in FTL
+     create a new table FTL_in_pair to put pair : pairdID, paidBy, paidTo, sum.
+        -- additional column month_year to group by month in case truncateMonths() method is triggerred
+        -- additional column year to group by year in case truncateYears() method is triggerred
+     iterate each row of FTL and update the sum column of FTL_in_pair
+     delete all rows from FTL
+     iterate each row of FTL_in_pair and create a new row in FTL
+     delete all rows from FTL_in_pair
+
+     Additionally,
+     no need to update wallet amount as it's the same as before
+     delete all rows from non-transactional tables like journey, accident, repairExpense, insuranceClaim etc.
+     do not remove important tables like vehicle, route, wallet etc.
+     */
+    @GetMapping("/truncate/date")
+    public ResponseEntity<String> truncateTillDate(Date date) {
+        //commonApiService.truncateAllDataPreviousToDate(date);
+        return new ResponseEntity<String>("success", HttpStatusCode.valueOf(200));
     }
 
 }
