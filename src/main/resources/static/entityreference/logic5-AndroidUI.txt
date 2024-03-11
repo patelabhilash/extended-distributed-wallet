@@ -27,7 +27,7 @@ HomeScreen():
             one item - add journeyTransaction--AJTFormScreen()
         one row
             one item - add wallet                           --AWFormScreen()
-            one item - simple placeholder for aesthetic     -- APlaceHolderFormScreen() // no required
+            one item - add tourist route                    --ATRFormScreen()
             one item - add otherExpenses                    --AOEFormScreen()
         one lazyrow --- move it to other navitem (2nd navitem)
             List of other cards like FTL, routes, employees, vehicles, etc

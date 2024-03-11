@@ -48,17 +48,21 @@ public class Route {
     @Column(name = "is_arrival_on_same_day")
     private boolean isArrivalOnSameDay;
 
+    @Column(name = "is_tourist_route")
+    private boolean isTouristRoute;
+
+    @Column(name = "is_expired")
+    private boolean isExpired;
+
     @OneToMany(mappedBy = "route", orphanRemoval = true)
     private List<Stop> stops;
 
-    public Route(String originLocation, LocalTime departureTime, String destinationLocation, LocalTime arrivalTime){
-        this.origin = new RouteOrigin(departureTime , originLocation);
+    public Route(String originLocation, LocalTime departureTime, String destinationLocation, LocalTime arrivalTime) {
+        this.origin = new RouteOrigin(departureTime, originLocation);
         this.destination = new RouteDestination(arrivalTime, destinationLocation);
     }
 
-    
-
-    public Route(RouteOrigin origin, RouteDestination destination){
+    public Route(RouteOrigin origin, RouteDestination destination) {
         this.origin = origin;
         this.destination = destination;
     }
