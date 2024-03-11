@@ -27,8 +27,8 @@ HomeScreen():
             one item - add journeyTransaction--AJTFormScreen()
         one row
             one item - add wallet                           --AWFormScreen()
-            one item - add tourist route                    --ATRFormScreen()
-            one item - add otherExpenses                    --AOEFormScreen()
+            one item - add route                            --ARFormScreen() //option to mark it as tourist
+            one item - add otherTransaction                 --AOTFormScreen()
         one lazyrow --- move it to other navitem (2nd navitem)
             List of other cards like FTL, routes, employees, vehicles, etc
                             -- names are FTLViewScreen(), RoutesViewScreen(), EmployeesViewScreen(), VehiclesViewScreen() etc.
@@ -43,3 +43,15 @@ NoteTakingScreen()
 
 other references:
 https://www.youtube.com/watch?v=t3ZonTbwzAs&list=PLRKyZvuMYSINkJXNAdJwZofK-1WvFeyqO&index=1
+
+** submitting journeyLedger of a tourist route would set it as expired.
+
+ARFormScreen() {
+    origin, destionation, originTime, destinationTime, travelDurationInHr, isArrivalOnSameDay, isTouristRoute.
+    this would set location names with suffix "_TOURIST"
+}
+
+prioirty is:
+fixed 4 wallets
+journeys
+otherTransactions
