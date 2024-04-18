@@ -1,0 +1,78 @@
+OtherTransaction
+FTL
+    wallet
+    transactionType 
+        - J , N , RE, O , I
+    current add for O only
+
+
+
+UI:
+add walletCategory
+add wallet
+add OtherTransaction - 
+view all transactions
+
+UI elements in OtherTransaction:
+transaction date:
+paidby : Wallet
+paidto: Wallet
+amount: 
+note
+desc:
+
+UI hidden elements in OtherTransaction:
+updated_date : today()
+TransactionType : BO
+lastUpdatedDeviceId : thisdevice()
+
+(need to test below in supabase)
+transactionId -> auto increment
+OtherTransactionId -> create OtherTransaction return OtherTransactionId
+
+
+
+
+
+
+so, there's relationship between transactionType and walletType, walletCategory
+
+Internal to Internal = OtherTransaction
+
+
+J , N , RE, O , I
+
+
+Hidden_E, GovtPaperWorks_E, Association_E, Owner, Locker, Bank_E, Employee, ImportantPerson_E, miscellaneous_E,
+        Adjustment_E;
+
+J, N, RE, I
+Hidden_E
+Route_TOURIST
+Route_FROM_DEST_DEPRTTIME
+VehicleRepair_chasisno  (vehicle number would be in desc)
+
+
+O:
+all the rest
+
+
+
+
+
+other wallet name is O:
+other_business_maintenance_and_expansion
+
+
+
+
+DB constant_wallet
+-----
+in UI it will check valid route and active vehicle then only it will show the corresponding wallet
+
+----
+so one is distributed-wallet
+
+another is docs supporting it
+
+

@@ -14,7 +14,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.Getter;
@@ -58,11 +58,11 @@ public class FinancialTransactionLog {
     @Column(name = "last_updated_device_id")
     private String lastUpdatedDeviceId;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "paid_by_id")
     private Wallet paidBy;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "paid_to_id")
     private Wallet paidTo;
 
