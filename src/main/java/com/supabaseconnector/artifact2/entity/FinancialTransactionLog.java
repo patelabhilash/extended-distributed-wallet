@@ -27,8 +27,8 @@ import lombok.Setter;
 @Table(name = "financial_transaction_log")
 public class FinancialTransactionLog {
 
-    //ALLOWED VALUES: J , N , O :: RE, I
-    //I is from 
+    // ALLOWED VALUES: J , N , O :: RE, I
+    // I is from
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -58,13 +58,13 @@ public class FinancialTransactionLog {
     @Column(name = "last_updated_device_id")
     private String lastUpdatedDeviceId;
 
-    @ManyToOne
-    @JoinColumn(name = "paid_by_id")
-    private Wallet paidBy;
+    //wallet name of paid by
+    @Column(name = "paid_by_id")
+    private String paidBy;
 
-    @ManyToOne
-    @JoinColumn(name = "paid_to_id")
-    private Wallet paidTo;
+    //wallet name of paid to
+    @Column(name = "paid_to_id")
+    private String paidTo;
 
     @Column(name = "amount")
     private long amount;

@@ -23,21 +23,19 @@ public class Wallet {
     @Id
     @Column(name = "wallet_name")
     private String walletName;
+    
+    @Column(name = "description")
+    private String description;
 
-    @Column(name = "desc")
-    private String desc;
-
-
+    
     @Enumerated(EnumType.STRING)
     @Column(name = "wallet_type")
     private WalletType walletType;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "wallet_category")
-    private WalletCategory walletCategory;
+    private WalletCategory walletCategory; 
 
     @Column(name = "amount")
     private double balance; // the amount the wallet possess , to be updated in each transaction
-
 }
-

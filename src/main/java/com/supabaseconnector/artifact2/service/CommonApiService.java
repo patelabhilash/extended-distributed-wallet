@@ -157,8 +157,8 @@ public class CommonApiService {
         Set<Long> journeyIds = new HashSet<>();
         List<NonAccidentRepairExpensePaidSeparately> narepsList = new ArrayList<>();
         List<OtherTransaction> otherTransactionList = new ArrayList<>();
-        List<FinancialTransactionLog> ftls = financialTransactionLogRepository.findByTransactionDateBetween(date,
-                date.plusDays(moreDays));
+        List<FinancialTransactionLog> ftls = financialTransactionLogRepository.findByTransactionDateBetween(date.atStartOfDay(),
+                date.plusDays(moreDays).atStartOfDay());
         for (FinancialTransactionLog ftl : ftls) {
             if (ftl.getTransactionType().equals(TransactionType.J)) {
                 journeyTransactionRepository.findByFtlFinancialTransactionLogId(ftl.getFinancialTransactionLogId())

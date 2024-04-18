@@ -75,4 +75,7 @@ so one is distributed-wallet
 
 another is docs supporting it
 
-
+--------SQL------------
+drop all tables
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
