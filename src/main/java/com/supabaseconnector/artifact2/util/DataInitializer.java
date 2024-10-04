@@ -122,14 +122,14 @@ public class DataInitializer implements CommandLineRunner {
     private void initializeConstantWallets() {
         List<Wallet> wallets = List.of(
                 new Wallet("business_maintenance_and_expansion", "", WalletType.EXTERNAL,
-                        WalletCategory.miscellaneous_E, 0),
-                new Wallet("miscellaneous", "", WalletType.EXTERNAL, WalletCategory.miscellaneous_E, 0),
-                new Wallet("Adjustment_E", "", WalletType.EXTERNAL, WalletCategory.Adjustment_E, 0),
+                        WalletCategory.miscellaneous_E, 0, true),
+                new Wallet("miscellaneous", "", WalletType.EXTERNAL, WalletCategory.miscellaneous_E, 0, true),
+                new Wallet("Adjustment_E", "", WalletType.EXTERNAL, WalletCategory.Adjustment_E, 0, true),
 
                 new Wallet("Route_Tourist_sameDayArrival", "on tourist permit", WalletType.EXTERNAL,
-                        WalletCategory.Hidden_E, 0),
+                        WalletCategory.Hidden_E, 0, true),
                 new Wallet("Route_Tourist_nextDayArrival", "on tourist permit", WalletType.EXTERNAL,
-                        WalletCategory.Hidden_E, 0));
+                        WalletCategory.Hidden_E, 0, true));
 
         wallets.stream().filter(w -> !doesWalletExist(w.getWalletName())).forEach(walletRepository::save);
 
@@ -165,17 +165,17 @@ public class DataInitializer implements CommandLineRunner {
         List<String> owners = initHolder.getOwners();
         List<String> lockers = initHolder.getLockers();
         List<String> banks = initHolder.getBanks();
-        List<String> importants = initHolder.getImportants();
+        List<String> importants = initHolder.getViplist();
         List<Wallet> wallets = initHolder.getWallets();
         if (owners != null) {
             for (String owner : owners) {
                 if (!doesWalletExist("Owner_" + owner + "_I")) {
                     walletRepository.save(new Wallet("Owner_" + owner + "_I", "internal owner wallet",
-                            WalletType.INTERNAL, WalletCategory.Owner, 0.0));
+                            WalletType.INTERNAL, WalletCategory.Owner, 0.0, true));
                 }
                 if (!doesWalletExist("Owner_" + owner + "_E")) {
                     walletRepository.save(new Wallet("Owner_" + owner + "_E", "external owner wallet",
-                            WalletType.EXTERNAL, WalletCategory.Owner, 0.0));
+                            WalletType.EXTERNAL, WalletCategory.Owner, 0.0, true));
                 }
             }
         }
@@ -183,7 +183,7 @@ public class DataInitializer implements CommandLineRunner {
             for (String locker : lockers) {
                 if (!doesWalletExist("Locker_" + locker + "_I")) {
                     walletRepository.save(new Wallet("Locker_" + locker + "_I", "internal locker wallet",
-                            WalletType.INTERNAL, WalletCategory.Locker, 0.0));
+                            WalletType.INTERNAL, WalletCategory.Locker, 0.0, true));
                 }
             }
         }
@@ -191,7 +191,7 @@ public class DataInitializer implements CommandLineRunner {
             for (String bank : banks) {
                 if (!doesWalletExist(bank + "_Bank_E")) {
                     walletRepository.save(new Wallet(bank + "_Bank_E", "external bank wallet", WalletType.EXTERNAL,
-                            WalletCategory.Bank_E, 0.0));
+                            WalletCategory.Bank_E, 0.0, true));
                 }
             }
         }
@@ -199,7 +199,7 @@ public class DataInitializer implements CommandLineRunner {
             for (String important : importants) {
                 if (!doesWalletExist("VIP_" + important + "_E")) {
                     walletRepository.save(new Wallet("VIP_" + important + "_E", "tracking as important person",
-                            WalletType.EXTERNAL, WalletCategory.ImportantPerson_E, 0.0));
+                            WalletType.EXTERNAL, WalletCategory.ImportantPerson_E, 0.0, true));
                 }
             }
         }
@@ -225,9 +225,9 @@ public class DataInitializer implements CommandLineRunner {
                 && !doesWalletExist(walletNameE) && !doesWalletExist(walletNameI)) {
             employeeRepository.save(employee);
             walletRepository.save(new Wallet(walletNameE, "emp - " + employee.getShortName() + " - external wallet",
-                    WalletType.EXTERNAL, WalletCategory.Employee, 0.0));
+                    WalletType.EXTERNAL, WalletCategory.Employee, 0.0, true));
             walletRepository.save(new Wallet(walletNameI, "emp - " + employee.getShortName() + " - internal wallet",
-                    WalletType.INTERNAL, WalletCategory.Employee, 0.0));
+                    WalletType.INTERNAL, WalletCategory.Employee, 0.0, true));
         } else {
             log.info("Database already contains data. Skipping initialization.");
             log.error(walletNameE + " OR " + walletNameI + " OR " + "employee : " + employee.getShortName()
@@ -246,7 +246,7 @@ public class DataInitializer implements CommandLineRunner {
             vehicleRepository.save(vehicle);
             walletRepository.save(
                     new Wallet(walletName, "vehicle repair - " + vehicle.getVehicleNumber() + " - external wallet",
-                            WalletType.EXTERNAL, WalletCategory.Hidden_E, 0.0));
+                            WalletType.EXTERNAL, WalletCategory.Hidden_E, 0.0, true));
         } else {
             log.info("Database already contains data. Skipping initialization.");
             log.error(walletName + " OR " + "vehicle : " + vehicle.getChasisNo() + " already exists");
@@ -272,7 +272,7 @@ public class DataInitializer implements CommandLineRunner {
                             "route - " + route.getOrigin().getLocation().getLocationName() + " - "
                                     + route.getDestination().getLocation().getLocationName() + " - " + route.getOrigin().getDepartureTime()
                                     + " - external wallet",
-                            WalletType.EXTERNAL, WalletCategory.Hidden_E, 0.0));
+                            WalletType.EXTERNAL, WalletCategory.Hidden_E, 0.0, true));
         } else {
             log.info("Database already contains data. Skipping initialization.");
             log.error(walletName + " already exists");

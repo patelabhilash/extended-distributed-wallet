@@ -30,7 +30,7 @@ import com.supabaseconnector.artifact2.entity.jour.Vehicle;
 import com.supabaseconnector.artifact2.model.TransactionList;
 import com.supabaseconnector.artifact2.service.CommonApiService;
 
-@RestController(value = "/v1")
+@RestController(value = "/v1/artifact")
 public class ArtifactController {
 
     @Autowired

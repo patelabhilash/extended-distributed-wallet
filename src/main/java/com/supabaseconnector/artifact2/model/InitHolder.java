@@ -18,6 +18,6 @@ public class InitHolder {
     private List<String> owners;
     private List<String> lockers;
     private List<String> banks;
-    private List<String> importants;
+    private List<String> viplist;
     private List<Wallet> wallets;
 }

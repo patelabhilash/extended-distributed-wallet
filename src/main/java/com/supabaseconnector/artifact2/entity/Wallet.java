@@ -38,4 +38,7 @@ public class Wallet {
 
     @Column(name = "amount")
     private double balance; // the amount the wallet possess , to be updated in each transaction
+
+    @Column(name = "is_visible")
+    private boolean isVisible;
 }

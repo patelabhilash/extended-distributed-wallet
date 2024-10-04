@@ -1,0 +1,86 @@
+complete kotlin guide:
+https://supabase.com/docs/reference/kotlin/introduction
+
+quick start guide:
+https://supabase.com/docs/guides/getting-started/quickstarts/kotlin
+
+follow above(quick start guide) to populate data with opening of composable.
+
+we will use the above stratergy to populate using launchedeffect:
+'FTL view' -> FTL table
+'add wallet view' -> wallet table
+'wallets view' -> wallet table
+
+#####################################
+TODO:
+copy newsapp, remove unnecessary files, keep resources and folder structure,
+download supabase project, copy from supa proj to newsapp-copy
+
+#####################################
+
+//getTransactionByWeek
+    supabase.from("cities").select(columns = Columns.list("name")) {
+        order(column = "id", order = Order.DESCENDING)
+        limit(count = 2500)
+    filter {
+       City::countryId gte 300
+       //or
+       gte("country_id", 300)
+
+
+       City::countryId lte 3200
+       //or
+       lte("country_id", 3200)
+
+
+    }
+}
+    
+#####################################
+
+    //addFTLTransaction
+
+    
+// initial draft to add transaction
+//create a record and return it, once returned pop up "success alert box"
+//i.e. add OtherTransaction -> get success return -> add FTL transaction
+
+val city = City(name = "The Shire", countryId = 554)
+val result = supabase.from("cities").insert(city) { 
+    select() 
+}.decodeSingle<City>()
+
+
+#####################################
+
+    //addOtherTransaction
+
+    
+// initial draft to add transaction
+//create a record and return it, once returned pop up "success alert box"
+//i.e. add OtherTransaction -> get success return -> add FTL transaction
+
+val city = City(name = "The Shire", countryId = 554)
+val result = supabase.from("cities").insert(city) { 
+    select() 
+}.decodeSingle<City>()
+
+
+#####################################
+
+
+    //getWalletList
+
+    supabase.from("countries")
+                              .select().decodeList<Country>()
+
+####################################
+    //addWallet
+
+
+val city = City(name = "The Shire", countryId = 554)
+val result = supabase.from("cities").insert(city) { 
+    select() 
+}.decodeSingle<City>()
+
+#####################################

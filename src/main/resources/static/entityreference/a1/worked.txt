@@ -1,0 +1,53 @@
+
+-- no need to enable extension here
+create materialized view if not exists
+  continuous_aggregate as
+select
+  time_bucket ('1 day'::interval, created_at) as time_bucket,
+  wallet_id,
+  sum(amount) as sum_amount
+from
+  eventhub
+group by
+  time_bucket,
+  wallet_id
+with
+  no data;
+
+  -- ----------------------------------------
+  REFRESH MATERIALIZED VIEW continuous_aggregate;
+
+  ============================
+-- below did not work due to license issue
+  -- to get table datatypes:
+  SELECT data_type
+FROM information_schema.columns
+WHERE table_name = 'eventhub2'
+
+===================================
+================================
+-- to try with timescale extension:
+-- SELECT create_hypertable('eventhub2', 'created_at'); -- worked
+-- make sure created_at is both primary key and unique in constrain.
+
+
+create materialized view
+  conditions_summary_daily_2
+with
+  (timescaledb.continuous) as
+select
+  wallet_id,
+  time_bucket (interval '1 day', created_at) as day_bucket,
+  sum(amount) as sum_amount
+from
+  eventhub2
+group by
+  day_bucket,
+  wallet_id;
+
+
+-- -------------
+--got following error"
+-- ERROR:  0A000: functionality not supported under the current "apache" license
+-- HINT:  Upgrade your license to 'timescale' to use this free community feature.
+

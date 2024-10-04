@@ -1,0 +1,118 @@
+SELECT create_hypertable('table_name', 'column_name');
+
+Create Aggregated Tables:
+a. Weekly Aggregated Table
+SELECT create_continuous_aggregate('weekly_aggregate', 'bus_event', 
+    timespan => interval '1 week',
+    start_offset => interval '1 day'
+);
+
+b. Monthly Aggregated Table:
+SELECT create_continuous_aggregate('monthly_aggregate', 'bus_event', 
+    timespan => interval '1 month',
+    start_offset => interval '1 day'
+);
+
+c. Annually Aggregated Table:
+SELECT create_continuous_aggregate('annually_aggregate', 'bus_event', 
+    timespan => interval '1 year',
+    start_offset => interval '1 day'
+);
+
+Define Aggregations:
+For each continuous aggregate table, define the aggregations you want to perform. In your case, you want to track the sum of price and the maximum of price, as well as the total head_count. You can define these aggregations in your continuous aggregates like this:
+
+SELECT add_continuous_aggregate_policy('weekly_aggregate', 
+    start_offset => interval '1 day',
+    end_offset => interval '1 day',
+    aggregations => jsonb_build_object(
+        'sum_price', 'sum(price)',
+        'max_price', 'max(price)',
+        'total_headcount', 'sum(head_count)'
+    )
+);
+
+Repeat the above step for the monthly_aggregate and annually_aggregate tables with the corresponding aggregations.
+
+Here's how you can query the timescaledb_information.continuous_aggregates table to see the continuous aggregates in your database:
+
+SELECT * FROM timescaledb_information.continuous_aggregates;
+
+In TimescaleDB, you can manually trigger the refresh of continuous aggregates by using the refresh_continuous_aggregate function. 
+SELECT refresh_continuous_aggregate('weekly_aggregate');
+Replace 'weekly_aggregate' with the name of the continuous aggregate you want to refresh.
+
+Refresh All Continuous Aggregates:
+SELECT refresh_all_continuous_aggregates('bus_event');
+
+
+Additionally, you can configure automatic refresh intervals and schedules when you create continuous aggregates using add_continuous_aggregate_policy. 
+
+============================
+Yes, you can use TimescaleDB to handle the total price update purpose without relying on traditional triggers. 
+
+-- Create a continuous aggregate policy for table_B
+SELECT create_continuous_aggregate('total_price_aggregate', 'table_B', 'time', 'price', 'sum');
+
+-- Define a data retention policy to automatically manage data retention
+SELECT add_continuous_aggregate_policy('total_price_aggregate', '7 days', older_than => interval '7 days');
+
+In the example above, a continuous aggregate named 'total_price_aggregate' is created for 'table_B' to calculate the sum of the 'price' column over time. A data retention policy is also defined to keep data for a specified duration.
+
+==================
+
+Here's a simplified example of creating continuous aggregates for weekly and monthly data:
+
+-- Create a continuous aggregate for weekly data
+SELECT create_continuous_aggregate('my_hypertable_weekly_agg', 
+  start_offset => '1 week'::interval, end_offset => '1 week'::interval,
+  schedules => [timescale], 
+  materialization_interval => '1 week'::interval);
+
+-- Create a continuous aggregate for monthly data
+SELECT create_continuous_aggregate('my_hypertable_monthly_agg', 
+  start_offset => '1 month'::interval, end_offset => '1 month'::interval,
+  schedules => [timescale], 
+  materialization_interval => '1 month'::interval);
+
+These queries create continuous aggregates that roll up your daily data into weekly and monthly intervals, making it efficient to query aggregated data.
+
+create a hyper table:
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+
+public interface HypertableRepository extends CrudRepository<YourEntity, Long> {
+    @Query(nativeQuery = true, value = "SELECT create_hypertable(:table_name, :time_column)")
+    void createHypertable(@Param("table_name") String tableName, @Param("time_column") String timeColumn);
+}
+
+Updating a Hypertable:
+@Query(nativeQuery = true, value = "ALTER TABLE :table_name ADD COLUMN new_column INT")
+void updateHypertable(@Param("table_name") String tableName);
+
+For example, you can use SQL queries like this to check if a hypertable exists:
+SELECT EXISTS (
+    SELECT 1
+    FROM _timescaledb_catalog.hypertable
+    WHERE table_name = 'your_table_name'
+);
+
+use above to avoid running the creation of a hypertable more than once.
+
+==========
+groupings by routeid and vehile id
+SELECT add_continuous_aggregate_policy(
+    'weekly_aggregate',
+    start_offset => interval '1 day',
+    end_offset => interval '1 day',
+    aggregations => jsonb_build_object(
+        'sum_price', 'sum(price)',
+        'max_price', 'max(price)',
+        'total_headcount', 'sum(head_count)'
+    ),
+    groupings => jsonb_build_array('route_id', 'vehicle_id')
+);
+
+https://bard.google.com/chat/1602e499d07a863a
+https://stackoverflow.com/questions/69725439/efficient-way-to-get-latest-newest-version-of-versioned-time-series-per-group-ag

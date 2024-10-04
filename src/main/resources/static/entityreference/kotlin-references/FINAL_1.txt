@@ -1,0 +1,19 @@
+Note: add in description:
+*
+vehicle engine no. ,passenger income, luggage income,
+diesel expense, repair expense, other expense, did accident happen?
+
+
+
+for input data use json , springboot app.
+define json structures for various purose and document those curls.
+
+
+
+Create Read : Wallet, Transactions
+
+transaction view: select (year& month)
+
+NOW:
+define views with modifiers : 2 views:
+

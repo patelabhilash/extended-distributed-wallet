@@ -3,7 +3,7 @@
     "owners" : ["AP", "CKD", "AP_&_CKD"],
     "lockers" : ["Sesu_Home", "CKD_BBS_House"],
     "banks" : ["Main_SBI", "AP_AXIS", "CKD_SBI", "CKD_AXIS"],
-    "importants" : ["Investor_nanda","Investor_bhai", "GovtEmp01"],
+    "viplist" : ["Investor_nanda","Investor_bhai", "GovtEmp01"],
     "employees" : [
         "sesu", "shortname01", "shortname02", "shortname03"
     ],
